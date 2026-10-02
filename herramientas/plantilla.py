@@ -107,7 +107,7 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 {adornos.DEFS}
 <a class="saltar" href="#contenido">{esc(tx(d, "saltar", l))}</a>
 <header class="cabecera-fondo"><div class="cabecera">
-<a class="marca" href="{r(ruta("inicio", l))}">{adornos.diamante("diamante marca-diamante")}<span>ASHA<small>Jewelry · Miami</small></span></a>
+<a class="marca" href="{r(ruta("inicio", l))}">{adornos.letras("marca-letras", "ASHA Jewelry")}<small>Miami</small></a>
 <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu" hidden>{esc(tx(d, "menu", l))}</button>
 <nav id="menu" aria-label="{esc(tx(d, "menu", l))}"><ul>{nav}<li><a class="idioma" href="{r(alternos[otro])}" hreflang="{otro}" lang="{otro}">{esc(tx(d, "otro_idioma", l))}</a></li></ul></nav>
 </div></header>

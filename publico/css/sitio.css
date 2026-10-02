@@ -5,12 +5,12 @@
 /* Reparto: fondo claro (azul claro) con texto negro; bloques oscuros (azul
    marino) y pie (negro) con texto blanco u oro. El dorado nunca va sobre claro. */
 :root{
-  --claro:#CFF2F6;
+  --claro:#CEF2F5;
   --oscuro:#102A43;
   --tinta:#1A1408;
   --gris:#4A4438;
-  --oro:#BA8621;
-  --oro-claro:#DEAC3B;
+  --oro:#D5A332;
+  --oro-claro:#FDCF55;
   --blanco:#FFFFFF;
   --ancho:72rem;
   --radio:14px;
@@ -34,10 +34,7 @@ img{max-width:100%;height:auto;display:block}
 .seccion-oscura h2{color:var(--oro-claro)}
 .defs{position:absolute;width:0;height:0;overflow:hidden}
 /* Texto con el degradado dorado del logo; sin soporte, oro plano */
-.logo-asha,.marca span{color:var(--oro-claro)}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .logo-asha,.marca span{background:linear-gradient(180deg,#F0D07C,#E2B954 45%,#C2943A);-webkit-background-clip:text;background-clip:text;color:transparent}
-}
+
 .portada a,.seccion-oscura a,.servicio a{color:var(--oro-claro)}
 .cabecera-fondo :focus-visible,.portada :focus-visible,.seccion-oscura :focus-visible,.servicio :focus-visible,.pie :focus-visible{outline-color:var(--oro-claro)}
 
@@ -47,9 +44,9 @@ img{max-width:100%;height:auto;display:block}
 
 /* Cabecera (sobre claro) */
 .cabecera{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem 1.5rem;max-width:var(--ancho);margin:0 auto;padding:.75rem 1rem}
-.marca{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-family:"Playfair Display",Georgia,serif;font-size:1.6rem;font-weight:600;letter-spacing:.06em;line-height:1}
-.marca-diamante{width:2.6rem;height:auto;flex:none}
-.marca small{display:block;margin-top:.3rem;font-family:Montserrat,sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--blanco);-webkit-text-fill-color:var(--blanco)}
+.marca{display:flex;align-items:flex-end;gap:.6rem;text-decoration:none;color:var(--blanco);line-height:1}
+.marca-letras{width:7.5rem;height:auto;display:block}
+.marca small{font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;padding-bottom:.1rem}
 #menu ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 #menu a{display:inline-block;text-decoration:none;color:var(--blanco);font-weight:600;font-size:.95rem;padding:.35rem 0;border-bottom:2px solid transparent}
 #menu a:hover,#menu a[aria-current=page]{border-bottom-color:var(--oro)}
@@ -64,11 +61,9 @@ img{max-width:100%;height:auto;display:block}
 
 /* Portada (oscura) */
 .portada{padding:3.5rem 1rem 3rem;text-align:center}
-.corona{display:block;width:min(100%,22rem);height:auto;margin:0 auto .25rem}
 .logotipo{margin:0;line-height:1}
-.logo-asha{display:block;font-size:clamp(4rem,18vw,7rem);letter-spacing:.05em}
-.logo-jewelry{display:block;margin-top:.6rem;font-family:Montserrat,sans-serif;font-size:clamp(.95rem,3.5vw,1.25rem);font-weight:600;letter-spacing:.5em;text-transform:uppercase;color:var(--oro-claro);padding-left:.5em}
-.logo-miami{display:block;margin-top:.5rem;font-family:Montserrat,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.45em;text-transform:uppercase;color:var(--blanco);padding-left:.45em}
+.logo-portada{display:block;width:min(100%,26rem);height:auto;margin:0 auto}
+.logo-miami{display:block;margin-top:1rem;font-family:Montserrat,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.45em;text-transform:uppercase;color:var(--blanco);padding-left:.45em}
 .separador{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:1.5rem auto}
 .separador span{width:3.5rem;height:1px;background:var(--oro)}
 .estrella-sep{width:.9rem;height:.9rem}
@@ -82,7 +77,7 @@ img{max-width:100%;height:auto;display:block}
 .boton-principal:hover{background:var(--tinta)}
 .boton-borde{border-color:var(--oscuro);color:var(--tinta);background:transparent}
 .boton-borde:hover{background:var(--oscuro);color:var(--blanco)}
-.portada .boton-principal,.seccion-oscura .boton-principal{background:linear-gradient(180deg,#F0D07C,#E2B954 45%,#C2943A);color:var(--tinta)}
+.portada .boton-principal,.seccion-oscura .boton-principal{background:linear-gradient(135deg,#D5A332,#FDCF55 50%,#D5A332);color:var(--tinta)}
 .portada .boton-principal:hover,.seccion-oscura .boton-principal:hover{background:var(--oro-claro)}
 .portada .boton-borde,.seccion-oscura .boton-borde{border-color:var(--oro);color:var(--blanco)}
 .portada .boton-borde:hover,.seccion-oscura .boton-borde:hover{background:var(--oro);color:var(--tinta)}

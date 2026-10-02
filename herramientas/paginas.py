@@ -22,7 +22,7 @@ def precio(d, l, p):
 
 def marco(d, l):
     t = esc(tx(d, "foto_proximamente", l))
-    return (f'<div class="marco" role="img" aria-label="{t}">{adornos.diamante("diamante marco-diamante", 3)}'
+    return (f'<div class="marco" role="img" aria-label="{t}">{adornos.diamante("diamante marco-diamante")}'
             f'<span class="marco-t" aria-hidden="true">{t}</span></div>')
 
 
@@ -67,8 +67,7 @@ def inicio(d, l, man, hoy):
         f'<a href="{esc(rel(aqui, ruta_servicio(s, l)))}">{esc(tx(d, "ver_mas", l))}</a></li>'
         for s in d["servicios"])
     cuerpo = f"""<section class="portada">
-{adornos.corona()}
-<h1 class="logotipo"><span class="logo-asha">ASHA</span> <span class="logo-jewelry">Jewelry</span> <span class="logo-miami">Miami</span></h1>
+<h1 class="logotipo">{adornos.logo("logo-portada", "ASHA Jewelry")}<span class="logo-miami">Miami</span></h1>
 {adornos.separador()}
 <p class="lema">{esc(tx(d, "lema", l))}</p>
 <div class="acciones"><a class="boton boton-principal" href="{esc(href_c)}">{esc(etiqueta_c)}</a> <a class="boton boton-borde" href="{esc(rel(aqui, ruta("como_llegar", l)))}">{esc(tx(d, "cta_como_llegar", l))}</a></div>

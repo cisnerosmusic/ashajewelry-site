@@ -1,68 +1,105 @@
-"""Adornos de la marca en SVG, redibujados del logo de ASHA: el diamante, la
-estrella de cuatro puntas (0, 90, 180 y 270 grados) y la floritura doble.
+"""Logo de ASHA y sus piezas, a partir del vector original de Adys
+(marca/asha-logo.svg y marca/asha-solo-letras.svg, extraídos del PDF del kit).
 
-Todos pintan con el degradado dorado `url(#oro)`, que `DEFS` define una sola
-vez por página (los SVG en línea de un mismo documento comparten ids).
-Están pensados para ir sobre fondo oscuro.
+El diamante y la estrella no se redibujan: son los subtrazados del propio
+logo que caen dentro de su silueta. Todo pinta con el degradado dorado
+`url(#oro)`; `DEFS` define degradado y trazados una sola vez por página y
+cada uso es un <use>. Pensado para fondo oscuro.
 """
+import re
+from pathlib import Path
 
-# Degradado medido en el logo dorado sobre fondo oscuro: claro arriba,
-# más profundo abajo. Todos los tonos pasan 5:1 sobre --oscuro.
-ORO_ALTO, ORO_MEDIO, ORO_BAJO = "#F0D07C", "#E2B954", "#C2943A"
+MARCA = Path(__file__).resolve().parent.parent / "marca"
+
+# Colores oficiales de la ficha gráfica: oro #D5A332 y oro claro #FDCF55,
+# en diagonal como la versión "dorado degradado". Ambos pasan 6:1 sobre --oscuro.
+ORO, ORO_CLARO = "#D5A332", "#FDCF55"
+
+# Cajas medidas sobre el trazado del logo (unidades de su viewBox).
+CAJA_DIAMANTE = (86.0, 0.0, 39.0, 29.4)
+CAJA_ESTRELLA = (69.6, 4.7, 13.3, 13.3)
+# Silueta del diamante (tabla, filetín y punta) con medio punto de margen.
+DIAMANTE_SILUETA = [(91.3, -0.3), (119.7, -0.3), (125.4, 8.4), (105.45, 30.0), (85.5, 8.4)]
+
+
+def _leer(nombre):
+    texto = (MARCA / nombre).read_text(encoding="utf-8")
+    caja = re.search(r'viewBox="([^"]+)"', texto).group(1)
+    trazo = re.search(r' d="([^"]+)"', texto).group(1)
+    regla = re.search(r'fill-rule="([^"]+)"', texto).group(1)
+    return caja, trazo, regla
+
+
+def _dentro(punto, poligono):
+    x, y = punto
+    dentro = False
+    for (x1, y1), (x2, y2) in zip(poligono, poligono[1:] + poligono[:1]):
+        if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+            dentro = not dentro
+    return dentro
+
+
+def subtrazos(trazo, poligono):
+    """Los subtrazados (cada "M...") con todos sus puntos dentro del polígono."""
+    elegidos = []
+    for sub in ("M" + s for s in trazo.split("M") if s):
+        n = [float(v) for v in re.findall(r"-?\d+(?:\.\d+)?", sub)]
+        if all(_dentro(p, poligono) for p in zip(n[0::2], n[1::2])):
+            elegidos.append(sub)
+    return "".join(elegidos)
+
+
+def _rect(caja):
+    x, y, w, h = caja
+    return [(x, y), (x + w, y), (x + w, y + h), (x, y + h)]
+
+
+LOGO = _leer("asha-logo.svg")
+LETRAS = _leer("asha-solo-letras.svg")
+DIAMANTE = subtrazos(LOGO[1], DIAMANTE_SILUETA)
+ESTRELLA = subtrazos(LOGO[1], _rect(CAJA_ESTRELLA))
 
 DEFS = (
     '<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>'
-    '<linearGradient id="oro" x1="0" y1="0" x2="0" y2="1">'
-    f'<stop offset="0" stop-color="{ORO_ALTO}"/><stop offset=".45" stop-color="{ORO_MEDIO}"/>'
-    f'<stop offset="1" stop-color="{ORO_BAJO}"/></linearGradient></defs></svg>'
+    '<linearGradient id="oro" x1="0" y1="0" x2="1" y2="1">'
+    f'<stop offset="0" stop-color="{ORO}"/><stop offset=".5" stop-color="{ORO_CLARO}"/>'
+    f'<stop offset="1" stop-color="{ORO}"/></linearGradient>'
+    f'<path id="asha-logo" fill-rule="{LOGO[2]}" d="{LOGO[1]}"/>'
+    f'<path id="asha-letras" fill-rule="{LETRAS[2]}" d="{LETRAS[1]}"/>'
+    f'<path id="asha-diamante" fill-rule="{LOGO[2]}" d="{DIAMANTE}"/>'
+    f'<path id="asha-estrella" fill-rule="{LOGO[2]}" d="{ESTRELLA}"/>'
+    '</defs></svg>'
 )
 
-# Diamante en una caja de 100 x 80: tabla arriba, filetín a 26, punta abajo.
-# Lista de trazos (cada uno, una polilínea); marca.py dibuja los mismos.
-DIAMANTE_LINEAS = [
-    [(22, 3), (78, 3), (97, 26), (50, 77), (3, 26), (22, 3)],  # silueta
-    [(3, 26), (97, 26)],                                       # filetín
-    [(22, 3), (36, 26), (50, 3), (64, 26), (78, 3)],           # corona en zigzag
-    [(50, 3), (50, 77)], [(36, 26), (50, 77)], [(64, 26), (50, 77)],  # pabellón
-]
-DIAMANTE_TRAZOS = "".join(
-    "M" + "L".join(f"{x} {y}" for x, y in linea) for linea in DIAMANTE_LINEAS)
 
-# Estrella de cuatro puntas con lados cóncavos, centrada en (0, 0), radio 10.
-ESTRELLA = "M0-10C1-2 2-1 10 0C2 1 1 2 0 10C-1 2-2 1-10 0C-2-1-1-2 0-10Z"
-
-# Floritura: dos ondas cruzadas que forman un lazo doble, en 120 x 14.
-FLORITURA = "M2 7C20-1 45-1 62 7S100 15 118 7M2 7C20 15 45 15 62 7S100-1 118 7"
+def _svg(id_trazo, caja, clase, etiqueta=None):
+    if not isinstance(caja, str):
+        caja = " ".join(map(str, caja))
+    accesible = (f'role="img" aria-label="{etiqueta}"' if etiqueta
+                 else 'aria-hidden="true" focusable="false"')
+    return (f'<svg class="{clase}" viewBox="{caja}" {accesible}>'
+            f'<use href="#{id_trazo}" fill="url(#oro)"/></svg>')
 
 
-def diamante(clase="diamante", grosor=4):
-    return (f'<svg class="{clase}" viewBox="0 0 100 80" aria-hidden="true" focusable="false">'
-            f'<path d="{DIAMANTE_TRAZOS}" fill="none" stroke="url(#oro)" stroke-width="{grosor}" '
-            'stroke-linejoin="round" stroke-linecap="round"/></svg>')
+def logo(clase="logo", etiqueta=None):
+    """Logo completo: corona, ASHA y JEWELRY."""
+    return _svg("asha-logo", LOGO[0], clase, etiqueta)
+
+
+def letras(clase="letras", etiqueta=None):
+    """Solo ASHA y JEWELRY, sin la corona."""
+    return _svg("asha-letras", LETRAS[0], clase, etiqueta)
+
+
+def diamante(clase="diamante"):
+    return _svg("asha-diamante", CAJA_DIAMANTE, clase)
 
 
 def estrella(clase="estrella"):
-    return (f'<svg class="{clase}" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false">'
-            f'<path d="{ESTRELLA}" fill="url(#oro)"/></svg>')
-
-
-def corona():
-    """El conjunto de encima de "ASHA": florituras, estrellas y diamante,
-    en la misma disposición que el logo."""
-    return (
-        '<svg class="corona" viewBox="0 0 300 64" aria-hidden="true" focusable="false">'
-        f'<g fill="none" stroke="url(#oro)" stroke-width="1.6" stroke-linecap="round">'
-        f'<path transform="translate(8 40)" d="{FLORITURA}"/>'
-        f'<path transform="translate(292 40) scale(-1 1)" d="{FLORITURA}"/></g>'
-        f'<path transform="translate(112 20) scale(.7)" d="{ESTRELLA}" fill="url(#oro)"/>'
-        f'<path transform="translate(188 20) scale(.7)" d="{ESTRELLA}" fill="url(#oro)"/>'
-        f'<path transform="translate(126 2) scale(.48)" d="{DIAMANTE_TRAZOS}" fill="none" '
-        'stroke="url(#oro)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>'
-        '</svg>'
-    )
+    return _svg("asha-estrella", CAJA_ESTRELLA, clase)
 
 
 def separador():
-    """Línea, estrella, línea: sustituye a la raya dorada simple."""
+    """Línea, estrella, línea."""
     return ('<div class="separador" aria-hidden="true"><span></span>'
             + estrella("estrella estrella-sep") + '<span></span></div>')

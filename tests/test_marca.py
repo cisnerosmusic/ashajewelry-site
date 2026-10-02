@@ -13,7 +13,7 @@ class TestMarca(unittest.TestCase):
     def test_genera_iconos_y_og(self):
         with tempfile.TemporaryDirectory() as tmp:
             destino = Path(tmp)
-            marca.generar(destino, RAIZ / "herramientas" / "fuentes" / "PlayfairDisplay.ttf")
+            marca.generar(destino)
             esperados = {
                 "favicon-32.png": (32, 32), "apple-touch-icon.png": (180, 180),
                 "icon-192.png": (192, 192), "icon-512.png": (512, 512),
