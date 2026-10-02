@@ -26,6 +26,7 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 | Logo original de Adys en vector, nunca redibujado | Fidelidad a la marca; el diamante y la estrella son subtrazados suyos |
 | Raleway en lugar de Montserrat | Es la tipografía oficial ("JEWELRY") según la ficha |
 | Capa de movimiento separable, ritmo cinematográfico | Es una joyería: elegancia; y se puede quitar sin romper nada |
+| Botones: resplandor al pasar, reflejo metálico que los cruza y destello con el degradado del logo al pulsar | Que cada gesto combine con el oro de la portada; el halo es azul sobre fondo claro (regla del oro) |
 | Foto de la pancarta en la portada | Decisión de Ernesto; origen y licencia por confirmar |
 | `noindex` hasta conectar el dominio | Que Google no indexe la vista previa |
 

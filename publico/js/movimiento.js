@@ -39,3 +39,32 @@
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
   Array.prototype.forEach.call(piezas, function (p) { observador.observe(p); });
 })();
+
+// Destello al pulsar un botón: sale del punto tocado (o del centro con el
+// teclado) y se abre con el degradado del logo. Sin movimiento reducido.
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var BOTONES = '.boton, .contacto-fijo, .menu-boton, .filtros a';
+  var destellar = function (boton, x, y) {
+    boton.style.setProperty('--x', x + 'px');
+    boton.style.setProperty('--y', y + 'px');
+    boton.classList.remove('destello');
+    void boton.offsetWidth; // reinicia la animación si se pulsa seguido
+    boton.classList.add('destello');
+  };
+  document.addEventListener('pointerdown', function (e) {
+    var boton = e.target.closest(BOTONES);
+    if (!boton) return;
+    var r = boton.getBoundingClientRect();
+    destellar(boton, e.clientX - r.left, e.clientY - r.top);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var boton = e.target.closest && e.target.closest(BOTONES);
+    if (!boton) return;
+    destellar(boton, boton.offsetWidth / 2, boton.offsetHeight / 2);
+  });
+  document.addEventListener('animationend', function (e) {
+    if (e.animationName === 'destello') e.target.classList.remove('destello');
+  });
+})();
