@@ -1,0 +1,24 @@
+{
+  "nombre": "Asha Jewelry Miami",
+  "marca": "ASHA Jewelry",
+  "apertura": "2026-04-14",
+  "direccion": {
+    "calle": "12107 SW 152nd St",
+    "unidad": "Kiosk 2",
+    "ciudad": "Miami",
+    "estado": "FL",
+    "cp": "33177",
+    "pais": "US"
+  },
+  "dentro_de": "Mercado Fresco y Más",
+  "geo": null,
+  "telefono": "+17869781981",
+  "telefono_visible": "786-978-1981",
+  "whatsapp": null,
+  "dias": ["Tu", "We", "Th", "Fr", "Sa", "Su"],
+  "horas": null,
+  "instagram": "https://www.instagram.com/ashajewelryshop/",
+  "pagos": ["Affirm", "Afterpay", "Klarna", "Zip", "Shop Pay"],
+  "fotos": [],
+  "provisional": true
+}

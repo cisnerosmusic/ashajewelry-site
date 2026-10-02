@@ -1,0 +1,7 @@
+[
+  {"id": "anillos", "slug": {"es": "anillos", "en": "rings"}, "nombre": {"es": "Anillos", "en": "Rings"}},
+  {"id": "pulseras", "slug": {"es": "pulseras", "en": "bracelets"}, "nombre": {"es": "Pulseras", "en": "Bracelets"}},
+  {"id": "cadenas", "slug": {"es": "cadenas", "en": "chains"}, "nombre": {"es": "Cadenas", "en": "Chains"}},
+  {"id": "dijes", "slug": {"es": "dijes", "en": "pendants"}, "nombre": {"es": "Dijes", "en": "Pendants"}},
+  {"id": "aretes", "slug": {"es": "aretes", "en": "earrings"}, "nombre": {"es": "Aretes", "en": "Earrings"}}
+]
