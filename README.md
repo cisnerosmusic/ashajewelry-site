@@ -5,7 +5,9 @@ Sitio de ASHA Jewelry Miami ([Instagram](https://www.instagram.com/ashajewelrysh
 - **Vista previa:** https://cisnerosmusic.github.io/ashajewelry-site/ (con `noindex` hasta el lanzamiento)
 - **Dominio principal:** ashajewelryusa.com (GoDaddy, del cliente; aún sin conectar)
 - **Dominios secundarios:** ashajewelrymiami.com y ashamiami.com (comprados el 2-oct-2026; se redirigen al principal en el lanzamiento)
-- **Diseño:** `docs/superpowers/specs/2026-10-02-ashajewelry-site-design.md`
+- **Contexto, decisiones y estado:** `CONTEXTO.md` (léelo primero)
+- **Diseño inicial:** `docs/superpowers/specs/2026-10-02-ashajewelry-site-design.md` (la paleta, el logo y las tipografías cambiaron después; ver `CONTEXTO.md`)
+- **Marca:** `marca/LEEME.md`
 - **Pendientes:** `PENDIENTES.md`
 
 ## Cómo funciona

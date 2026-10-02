@@ -11,9 +11,16 @@ from pathlib import Path
 
 MARCA = Path(__file__).resolve().parent.parent / "marca"
 
-# Colores oficiales de la ficha gráfica: oro #D5A332 y oro claro #FDCF55,
-# en diagonal como la versión "dorado degradado". Ambos pasan 6:1 sobre --oscuro.
+# Colores oficiales de la ficha gráfica: oro #D5A332 y oro claro #FDCF55.
 ORO, ORO_CLARO = "#D5A332", "#FDCF55"
+# Degradado "metálico" de la versión dorada del logo de Adys, medido a lo largo
+# de su diagonal: bronce, oro, el reflejo claro que cruza la S y la H, oro y
+# bronce profundo. Es para el logo (gráfico); los botones usan ORO/ORO_CLARO.
+GRADIENTE = [
+    (0.0, "#A66706"), (0.18, "#B07F12"), (0.3, "#D6A635"), (0.42, "#F0C14A"),
+    (0.52, "#FDCF55"), (0.62, "#F2C44B"), (0.72, "#D8A635"), (0.84, "#B7841A"),
+    (1.0, "#9C6300"),
+]
 
 # Cajas medidas sobre el trazado del logo (unidades de su viewBox).
 CAJA_DIAMANTE = (86.0, 0.0, 39.0, 29.4)
@@ -62,8 +69,8 @@ ESTRELLA = subtrazos(LOGO[1], _rect(CAJA_ESTRELLA))
 DEFS = (
     '<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>'
     '<linearGradient id="oro" x1="0" y1="0" x2="1" y2="1">'
-    f'<stop offset="0" stop-color="{ORO}"/><stop offset=".5" stop-color="{ORO_CLARO}"/>'
-    f'<stop offset="1" stop-color="{ORO}"/></linearGradient>'
+    + "".join(f'<stop offset="{t}" stop-color="{c}"/>' for t, c in GRADIENTE)
+    + '</linearGradient>'
     f'<path id="asha-logo" fill-rule="{LOGO[2]}" d="{LOGO[1]}"/>'
     f'<path id="asha-letras" fill-rule="{LETRAS[2]}" d="{LETRAS[1]}"/>'
     f'<path id="asha-diamante" fill-rule="{LOGO[2]}" d="{DIAMANTE}"/>'

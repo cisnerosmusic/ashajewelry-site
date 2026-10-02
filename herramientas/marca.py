@@ -17,7 +17,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 if __package__ in (None, ""):
     sys.path.insert(0, str(RAIZ))
 
-from herramientas.adornos import CAJA_DIAMANTE, DIAMANTE, LOGO, ORO, ORO_CLARO  # noqa: E402
+from herramientas.adornos import CAJA_DIAMANTE, DIAMANTE, GRADIENTE, LOGO  # noqa: E402
 
 OSCURO = "#102A43"
 BLANCO = "#FFFFFF"
@@ -29,17 +29,25 @@ def _rgb(hexa):
     return tuple(int(hexa[i:i + 2], 16) for i in (1, 3, 5))
 
 
+def _color(t):
+    paradas = [(p, _rgb(c)) for p, c in GRADIENTE]
+    for (t0, c0), (t1, c1) in zip(paradas, paradas[1:]):
+        if t <= t1:
+            k = (t - t0) / (t1 - t0)
+            return tuple(round(a + (b - a) * k) for a, b in zip(c0, c1))
+    return paradas[-1][1]
+
+
 def degradado(ancho, alto):
-    """Oro, oro claro y oro en diagonal, como la versión "dorado degradado"."""
-    a, b = _rgb(ORO), _rgb(ORO_CLARO)
+    """El degradado metálico del logo en diagonal, igual que el SVG de la web
+    (x1=0 y1=0 x2=1 y2=1 sobre la caja de la pieza)."""
+    tabla = [_color(i / 255) for i in range(256)]
     im = Image.new("RGB", (ancho, alto))
     px = im.load()
-    total = max(ancho + alto - 2, 1)
     for y in range(alto):
         for x in range(ancho):
-            t = (x + y) / total
-            k = 1 - abs(2 * t - 1)  # 0 en las esquinas, 1 en el centro
-            px[x, y] = tuple(round(c0 + (c1 - c0) * k) for c0, c1 in zip(a, b))
+            t = (x / max(ancho - 1, 1) + y / max(alto - 1, 1)) / 2
+            px[x, y] = tabla[round(t * 255)]
     return im
 
 
