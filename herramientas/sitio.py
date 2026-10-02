@@ -55,6 +55,7 @@ def generar(raiz=RAIZ, publico=None, hoy=None):
 
 
 def main():
+    sys.stdout.reconfigure(encoding="utf-8")  # la consola de Windows no es UTF-8 por defecto
     try:
         d, pags = generar()
     except ErrorDatos as e:
