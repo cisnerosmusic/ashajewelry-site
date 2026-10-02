@@ -68,19 +68,19 @@ def inicio(d, l, man, hoy):
         for s in d["servicios"])
     cuerpo = f"""<section class="portada">
 <img class="insignia" src="{esc(rel(aqui, "img/insignia.jpg"))}" width="120" height="120" alt="ASHA Jewelry">
-<h1>Asha Jewelry Miami</h1>
+<h1>ASHA Jewelry Miami</h1>
 <hr class="ornamento">
 <p class="lema">{esc(tx(d, "lema", l))}</p>
-<div class="acciones"><a class="boton boton-oro" href="{esc(href_c)}">{esc(etiqueta_c)}</a> <a class="boton boton-borde" href="{esc(rel(aqui, ruta("como_llegar", l)))}">{esc(tx(d, "cta_como_llegar", l))}</a></div>
+<div class="acciones"><a class="boton boton-principal" href="{esc(href_c)}">{esc(etiqueta_c)}</a> <a class="boton boton-borde" href="{esc(rel(aqui, ruta("como_llegar", l)))}">{esc(tx(d, "cta_como_llegar", l))}</a></div>
 </section>
 {bloque_promo}
 <section class="seccion envoltura"><h2>{esc(tx(d, "inicio_destacadas", l))}</h2><ul class="rejilla">{destacadas}</ul>
 <p class="mas"><a class="boton boton-borde" href="{esc(rel(aqui, ruta("catalogo", l)))}">{esc(tx(d, "ver_catalogo", l))}</a></p></section>
-<section class="seccion seccion-aqua"><div class="envoltura"><h2>{esc(tx(d, "inicio_financiamiento_t", l))}</h2>
+<section class="seccion seccion-oscura"><div class="envoltura"><h2>{esc(tx(d, "inicio_financiamiento_t", l))}</h2>
 <p>{esc(tx(d, "inicio_financiamiento_p", l))}</p><ul class="pagos">{lista_pagos(d, l)}</ul>
 <p><a href="{esc(rel(aqui, ruta("financiamiento", l)))}">{esc(tx(d, "ver_mas", l))}</a></p></div></section>
 <section class="seccion envoltura"><h2>{esc(tx(d, "inicio_servicios", l))}</h2><ul class="servicios">{servicios_}</ul></section>
-<section class="seccion seccion-aqua"><div class="envoltura"><h2>{esc(tx(d, "inicio_visita_t", l))}</h2>
+<section class="seccion seccion-oscura"><div class="envoltura"><h2>{esc(tx(d, "inicio_visita_t", l))}</h2>
 <p>{esc(tx(d, "inicio_visita_p", l))}</p>{bloque_visita(d, l)}</div></section>"""
     return pagina(d, l, aqui, _alternos("inicio"), tx(d, "meta_inicio_t", l), tx(d, "meta_inicio_d", l),
                   cuerpo, [schema.tienda(d, l)], actual="inicio")
@@ -116,11 +116,11 @@ def ficha(d, l, p, man):
 <article class="ficha"><div class="ficha-foto">{foto(d, l, aqui, p, man, TAM_FICHA, p["nombre"][l], "eager")}</div>
 <div><h1>{esc(p["nombre"][l])}</h1><p class="material">{esc(p["material"][l])}</p><p class="precio">{esc(precio(d, l, p))}</p>
 <p>{esc(p["descripcion"][l])}</p>
-<p><a class="boton boton-oro" href="{esc(href_c)}">{esc(tx(d, "preguntar_pieza", l))}</a></p></div></article>
+<p><a class="boton boton-principal" href="{esc(href_c)}">{esc(tx(d, "preguntar_pieza", l))}</a></p></div></article>
 {relacionadas}</div>"""
     imagen = man[p["fotos"][0]][-1][1] if p.get("fotos") else None
     return pagina(d, l, aqui, {x: ruta_pieza(p, x) for x in config.IDIOMAS},
-                  f'{p["nombre"][l]} · Asha Jewelry Miami', p["descripcion"][l], cuerpo,
+                  f'{p["nombre"][l]} · ASHA Jewelry Miami', p["descripcion"][l], cuerpo,
                   [schema.tienda(d, l), schema.producto(d, l, p, imagen)], actual="catalogo")
 
 
@@ -146,9 +146,9 @@ def servicio(d, l, s, man):
 <article class="ficha"><div class="ficha-foto">{foto(d, l, aqui, s, man, TAM_FICHA, s["titulo"][l], "eager")}</div>
 <div><h1>{esc(s["titulo"][l])}</h1><p class="entradilla">{esc(s["intro"][l])}</p><p>{esc(s["descripcion"][l])}</p>
 <ul class="lista">{incluye}</ul>
-<p><a class="boton boton-oro" href="{esc(href_c)}">{esc(etiqueta_c)}</a></p></div></article></div>"""
+<p><a class="boton boton-principal" href="{esc(href_c)}">{esc(etiqueta_c)}</a></p></div></article></div>"""
     return pagina(d, l, aqui, {x: ruta_servicio(s, x) for x in config.IDIOMAS},
-                  f'{s["titulo"][l]} · Asha Jewelry Miami', s["intro"][l], cuerpo,
+                  f'{s["titulo"][l]} · ASHA Jewelry Miami', s["intro"][l], cuerpo,
                   [schema.tienda(d, l), schema.servicio(d, l, s)], actual="servicios")
 
 
@@ -159,7 +159,7 @@ def financiamiento(d, l):
 <p class="entradilla">{esc(tx(d, "financiamiento_intro", l))}</p>
 <h2>{esc(tx(d, "financiamiento_plataformas_t", l))}</h2><ul class="pagos">{"".join(f"<li>{esc(x)}</li>" for x in d["negocio"]["pagos"])}</ul>
 <h2>{esc(tx(d, "financiamiento_layaway_t", l))}</h2><p>{esc(tx(d, "financiamiento_layaway_p", l))}</p>
-<p><a class="boton boton-oro" href="{esc(href_c)}">{esc(etiqueta_c)}</a></p></div>"""
+<p><a class="boton boton-principal" href="{esc(href_c)}">{esc(etiqueta_c)}</a></p></div>"""
     return pagina(d, l, aqui, _alternos("financiamiento"), tx(d, "meta_financiamiento_t", l),
                   tx(d, "meta_financiamiento_d", l), cuerpo, [schema.tienda(d, l)], actual="financiamiento")
 
@@ -178,9 +178,9 @@ def error404(d):
     base = config.url_publica()
     cuerpo = f"""<div class="seccion envoltura"><h1>{esc(tx(d, "e404_t", "es"))}</h1>
 <p lang="en">{esc(tx(d, "e404_t", "en"))}</p>
-<p class="acciones" style="justify-content:flex-start"><a class="boton boton-oro" href="{esc(base)}">{esc(tx(d, "volver_inicio", "es"))}</a>
+<p class="acciones" style="justify-content:flex-start"><a class="boton boton-principal" href="{esc(base)}">{esc(tx(d, "volver_inicio", "es"))}</a>
 <a class="boton boton-borde" href="{esc(base)}en/" lang="en">{esc(tx(d, "volver_inicio", "en"))}</a></p></div>"""
-    return pagina(d, "es", "", _alternos("inicio"), tx(d, "e404_t", "es") + " · Asha Jewelry Miami",
+    return pagina(d, "es", "", _alternos("inicio"), tx(d, "e404_t", "es") + " · ASHA Jewelry Miami",
                   tx(d, "e404_t", "es"), cuerpo, [], indexable=False, absoluto=True)
 
 

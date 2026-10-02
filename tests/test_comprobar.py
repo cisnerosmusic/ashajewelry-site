@@ -4,8 +4,8 @@ from pathlib import Path
 
 from herramientas import comprobar
 
-CSS_BUENO = """:root{--aqua:#CFF2F6;--oro-claro:#DEAC3B;--oro:#BA8621;--oro-tinta:#7A5716;
---tinta:#1A1408;--blanco:#FFFFFF;--gris:#5C5446}"""
+CSS_BUENO = """:root{--claro:#CFF2F6;--oscuro:#102A43;--oro-claro:#DEAC3B;--oro:#BA8621;
+--tinta:#1A1408;--blanco:#FFFFFF;--gris:#4A4438}"""
 
 
 class TestContraste(unittest.TestCase):
@@ -13,15 +13,15 @@ class TestContraste(unittest.TestCase):
         self.assertAlmostEqual(comprobar.contraste("#FFFFFF", "#000000"), 21.0, places=1)
 
     def test_tokens(self):
-        self.assertEqual(comprobar.tokens_css(CSS_BUENO)["oro-tinta"], "#7A5716")
+        self.assertEqual(comprobar.tokens_css(CSS_BUENO)["oscuro"], "#102A43")
 
     def test_paleta_buena_pasa(self):
         self.assertEqual(comprobar.comprobar_contraste(CSS_BUENO), [])
 
-    def test_oro_como_tinta_falla(self):
-        malo = CSS_BUENO.replace("--oro-tinta:#7A5716", "--oro-tinta:#BA8621")
+    def test_oro_claro_sobre_oscuro_claro_falla(self):
+        malo = CSS_BUENO.replace("--oscuro:#102A43", "--oscuro:#5A7A93")
         problemas = comprobar.comprobar_contraste(malo)
-        self.assertTrue(any("oro-tinta" in p for p in problemas))
+        self.assertTrue(any("--oro-claro sobre --oscuro" in p for p in problemas))
 
     def test_token_ausente_es_problema(self):
         problemas = comprobar.comprobar_contraste(":root{--tinta:#000000}")

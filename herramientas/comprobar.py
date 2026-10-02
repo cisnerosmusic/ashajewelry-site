@@ -8,9 +8,8 @@ RAYA = "\u2014"
 MINIMO_AA = 4.5
 # (texto, fondo): cada par que el CSS usa para texto debe cumplir AA.
 PARES_TEXTO = [
-    ("tinta", "blanco"), ("tinta", "aqua"), ("tinta", "oro"),
-    ("oro-tinta", "blanco"), ("oro-tinta", "aqua"),
-    ("gris", "blanco"), ("gris", "aqua"),
+    ("tinta", "claro"), ("gris", "claro"),
+    ("blanco", "oscuro"), ("oro-claro", "oscuro"), ("tinta", "oro"),
     ("blanco", "tinta"), ("oro-claro", "tinta"),
 ]
 ESQUEMA = re.compile(r"^[a-z][a-z0-9+.-]*:", re.I)

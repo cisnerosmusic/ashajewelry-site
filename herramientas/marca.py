@@ -9,10 +9,10 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-AQUA = "#CFF2F6"
+OSCURO = "#102A43"
 ORO = "#BA8621"
-ORO_TINTA = "#7A5716"
-TINTA = "#1A1408"
+ORO_CLARO = "#DEAC3B"
+BLANCO = "#FFFFFF"
 RAIZ = Path(__file__).resolve().parent.parent
 
 
@@ -33,21 +33,22 @@ def icono(tam, fuente):
     dib = ImageDraw.Draw(im)
     borde = max(escala, round(t * 0.05))
     dib.ellipse((borde // 2, borde // 2, t - borde // 2 - 1, t - borde // 2 - 1),
-                fill=AQUA, outline=ORO, width=borde)
+                fill=OSCURO, outline=ORO, width=borde)
     f = _fuente(fuente, round(t * 0.6))
-    dib.text((t / 2, t / 2), "A", font=f, fill=ORO_TINTA, anchor="mm")
+    # "mm" centra entre ascendente y descendente; la A queda baja sin el ajuste.
+    dib.text((t / 2, t * 0.47), "A", font=f, fill=ORO_CLARO, anchor="mm")
     return im.resize((tam, tam), Image.LANCZOS)
 
 
 def og(fuente):
-    im = Image.new("RGB", (1200, 630), AQUA)
+    im = Image.new("RGB", (1200, 630), OSCURO)
     circulo = icono(240, fuente)
     im.paste(circulo, (480, 70), circulo)
     dib = ImageDraw.Draw(im)
-    dib.text((600, 400), "Asha Jewelry Miami", font=_fuente(fuente, 76), fill=TINTA, anchor="mm")
+    dib.text((600, 400), "ASHA Jewelry Miami", font=_fuente(fuente, 76), fill=BLANCO, anchor="mm")
     dib.line((540, 462, 660, 462), fill=ORO, width=3)
     dib.text((600, 515), "Mercado Fresco y Más · Kiosk 2 · Miami, FL",
-             font=_fuente(fuente, 34), fill=ORO_TINTA, anchor="mm")
+             font=_fuente(fuente, 34), fill=ORO_CLARO, anchor="mm")
     return im
 
 
@@ -60,7 +61,7 @@ def generar(destino, fuente):
         ruta = destino / nombre
         im = icono(tam, fuente)
         if nombre == "apple-touch-icon.png":
-            fondo = Image.new("RGB", im.size, AQUA)
+            fondo = Image.new("RGB", im.size, OSCURO)
             fondo.paste(im, (0, 0), im)
             im = fondo
         im.save(ruta, optimize=True)
