@@ -11,7 +11,7 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 - Dominios del cliente: **ashajewelryusa.com** (principal, GoDaddy, sin uso, vence el 14-jun-2029), ashajewelrymiami.com y ashamiami.com (comprados el 2-oct-2026, para redirigir al principal).
 
 ## Marca
-- Logo diseñado por **Adys**. El kit completo (`.ai`, PDF, PNG y Ficha Gráfica) está en el Drive de Ernesto, carpeta `ASHA Joyeria/Logo/De Adys`. La Ficha Gráfica es un primer intento de guía, no una norma cerrada.
+- Logo diseñado por **Adys**. El kit completo (`.ai`, PDF, PNG y Ficha Gráfica) está en `marca/LOGO-kit-Adys.zip` (y en el Drive de Ernesto, carpeta `ASHA Joyeria/Logo/De Adys`). La Ficha Gráfica es un primer intento de guía, no una norma cerrada.
 - `marca/asha-logo.svg` y `marca/asha-solo-letras.svg` son los vectores extraídos del PDF del kit. `marca/LEEME.md` tiene los colores oficiales y las tipografías.
 - Colores oficiales: oro `#D5A332`, oro claro `#FDCF55`, negro, aqua `#CEF2F5`. El degradado metálico del logo (bronce, oro, reflejo claro en la S y la H, oro, bronce) está medido de la versión dorada de Adys y vive en `herramientas/adornos.py` (`GRADIENTE`).
 - Tipografías del logo: Jitter ("ASHA") y Raleway ("JEWELRY"). La ficha usa **JitterDEMO**: la licencia comercial está por confirmar con Adys.

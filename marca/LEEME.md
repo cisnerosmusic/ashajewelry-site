@@ -1,6 +1,6 @@
 # Marca ASHA
 
-Logo diseñado por Adys. El kit completo (`.ai`, PDF, PNG en varias versiones y la Ficha Gráfica, que es un primer intento de guía) está en el Drive de Ernesto, no en este repo.
+Logo diseñado por Adys. El kit completo (`.ai`, PDF, PNG en varias versiones y la Ficha Gráfica, que es un primer intento de guía) está en `LOGO-kit-Adys.zip`, subido por decisión de Ernesto (2-oct-2026) para trabajar desde las dos máquinas. El repo es público: el zip es descargable por cualquiera, aunque la web no lo sirve.
 
 - `asha-logo.svg`: logo completo (corona, ASHA, JEWELRY). Extraído en vector del PDF del kit, versión "positivo".
 - `asha-solo-letras.svg`: ASHA y JEWELRY sin la corona, del mismo PDF.
