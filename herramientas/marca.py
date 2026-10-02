@@ -84,14 +84,25 @@ def icono(tam):
     return im.resize((tam, tam), Image.LANCZOS)
 
 
+def espaciado(dib, cx, cy, texto, fuente, aire, color):
+    """Texto centrado en (cx, cy) con `aire` (fracción del cuerpo) entre letras."""
+    hueco = fuente.size * aire
+    anchos = [dib.textlength(ch, font=fuente) for ch in texto]
+    x = cx - (sum(anchos) + hueco * (len(texto) - 1)) / 2
+    for ch, w in zip(texto, anchos):
+        dib.text((x, cy), ch, font=fuente, fill=color, anchor="lm")
+        x += w + hueco
+
+
 def og():
     a, h = 1200 * ESCALA, 630 * ESCALA
     im = Image.new("RGBA", (a, h), OSCURO)
     x, y, w, alto = (float(v) for v in LOGO[0].split())
     m = mascara((x, y, w, alto), 720 * ESCALA)
-    pegar_oro(im, m, (a - m.width) / 2, 70 * ESCALA)
-    ImageDraw.Draw(im).text((600 * ESCALA, 560 * ESCALA), "MIAMI  ·  MERCADO FRESCO Y MÁS  ·  KIOSK 2",
-                            font=ImageFont.truetype(str(LETRA), 26 * ESCALA), fill=BLANCO, anchor="mm")
+    pegar_oro(im, m, (a - m.width) / 2, 85 * ESCALA)
+    # Solo MIAMI, en blanco y espaciado como en la portada; la dirección va en el texto, no en la imagen.
+    espaciado(ImageDraw.Draw(im), 600 * ESCALA, 505 * ESCALA, "MIAMI",
+              ImageFont.truetype(str(LETRA), 30 * ESCALA), 0.45, BLANCO)
     return im.resize((1200, 630), Image.LANCZOS).convert("RGB")
 
 

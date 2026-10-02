@@ -15,6 +15,7 @@ Sitio estático generado desde datos. Antes de tocar nada lee, en este orden: [C
 - **El oro nunca va sobre el azul claro.** Fondo claro (`--claro`, aqua) con texto negro; bloques oscuros (`--oscuro`, azul marino) y negros (`--tinta`) con texto blanco u oro.
 - **Transiciones cinematográficas**: es una joyería. Tiempos largos y curvas suaves, nunca cambios secos. Todo el movimiento vive en la capa separable `estaticos/css/movimiento.css` + `estaticos/js/movimiento.js`.
 - El logo es el **original de Adys** en vector (`marca/`); no se redibuja. El diamante y la estrella son subtrazados del propio logo (`herramientas/adornos.py`).
+- En las imágenes (redes sociales, iconos) solo la marca y "MIAMI": la dirección, el kiosko y Fresco y Más van en el texto, no en la imagen.
 - Tipografías: **Raleway** para el texto (la de "JEWELRY" en el logo) y Playfair Display para los títulos. Jitter ("ASHA") no se usa como fuente.
 
 ## Datos y privacidad
