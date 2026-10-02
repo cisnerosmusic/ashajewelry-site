@@ -10,10 +10,17 @@
 }
 
 /* Cabecera fija que se desvanece al bajar y vuelve al subir */
+/* Dos tiempos para que el fundido sea limpio: la franja azul (.cabecera-fondo)
+   se queda opaca mientras su contenido (.cabecera) se desvanece sobre ella, y
+   solo después la franja vacía se retira hacia arriba. Nada de lo que sube por
+   debajo se ve a través. Al volver: baja la franja y luego aparece el contenido. */
 .cabecera-fondo{position:sticky;top:0;z-index:20;
-  transition:opacity var(--entrada-cabecera) var(--curva-lenta),transform var(--entrada-cabecera) var(--curva-lenta),visibility 0s}
-.cabecera-fondo.cabecera-oculta{opacity:0;transform:translateY(-14px);visibility:hidden;
-  transition:opacity var(--salida-cabecera) var(--curva),transform var(--salida-cabecera) var(--curva),visibility 0s linear var(--salida-cabecera)}
+  transition:transform .55s var(--curva-lenta),visibility 0s}
+.cabecera-fondo .cabecera{transition:opacity var(--entrada-cabecera) var(--curva-lenta) .3s,transform var(--entrada-cabecera) var(--curva-lenta) .3s}
+.cabecera-fondo.cabecera-oculta{transform:translateY(-100%);visibility:hidden;
+  transition:transform .7s var(--curva) calc(var(--salida-cabecera) - .1s),visibility 0s linear calc(var(--salida-cabecera) + .6s)}
+.cabecera-fondo.cabecera-oculta .cabecera{opacity:0;transform:translateY(-6px);
+  transition:opacity var(--salida-cabecera) var(--curva),transform var(--salida-cabecera) var(--curva)}
 .categoria{scroll-margin-top:5.5rem}
 
 /* Apariciones al entrar en pantalla (solo con JS y sin movimiento reducido).
@@ -68,7 +75,7 @@
 @keyframes destello{0%{opacity:.8;transform:scale(0)}60%{opacity:.45}100%{opacity:0;transform:scale(24)}}
 
 @media (prefers-reduced-motion:reduce){
-  .cabecera-fondo,.cabecera-fondo.cabecera-oculta{transition:none}
+  .cabecera-fondo,.cabecera-fondo.cabecera-oculta,.cabecera-fondo .cabecera,.cabecera-fondo.cabecera-oculta .cabecera{transition:none}
   .boton,#menu a,.filtros a,.tarjeta-foto img{transition:none}
   .tarjeta a:hover .tarjeta-foto img{transform:none}
   .boton,.contacto-fijo,.menu-boton,.filtros a{transition:none}
