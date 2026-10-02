@@ -27,6 +27,11 @@ class TestContraste(unittest.TestCase):
         problemas = comprobar.comprobar_contraste(":root{--tinta:#000000}")
         self.assertTrue(any("falta" in p for p in problemas))
 
+    def test_css_del_sitio_pasa(self):
+        raiz = Path(__file__).resolve().parent.parent
+        css = (raiz / "estaticos" / "css" / "sitio.css").read_text(encoding="utf-8")
+        self.assertEqual(comprobar.comprobar_contraste(css), [])
+
 
 class TestRayas(unittest.TestCase):
     def test_detecta_raya(self):
