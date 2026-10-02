@@ -43,9 +43,11 @@
 /* Botones: resplandor al pasar, el reflejo metálico del logo que los cruza
    y un destello con su degradado al pulsar. Sobre fondo claro el halo es azul
    profundo (el oro no va sobre azul claro); sobre oscuro, dorado. */
-.boton,.contacto-fijo,.menu-boton,.filtros a{position:relative;overflow:hidden;isolation:isolate;
+/* El botón flotante ya es position:fixed (contenedor de sus pseudoelementos); no se le cambia. */
+.boton,.contacto-fijo,.menu-boton,.filtros a{overflow:hidden;isolation:isolate;
   transition:background-color .6s var(--curva),border-color .6s var(--curva),color .6s var(--curva),
     box-shadow .9s var(--curva-lenta),transform .5s var(--curva-lenta)}
+.boton,.menu-boton,.filtros a{position:relative}
 .boton:hover,.boton:focus-visible,.filtros a:hover,.filtros a:focus-visible,.contacto-fijo:hover,.contacto-fijo:focus-visible{
   box-shadow:0 0 0 1px rgb(16 42 67 / .2),0 12px 30px -8px rgb(16 42 67 / .55);transform:translateY(-1px)}
 .cabecera-fondo .menu-boton:hover,.cabecera-fondo .menu-boton:focus-visible,
