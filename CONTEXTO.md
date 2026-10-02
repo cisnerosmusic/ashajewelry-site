@@ -43,5 +43,16 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 4. Vista previa local: `python -m http.server 8430 --directory publico`. Si se usa el panel de vista previa de Claude, añadir una entrada `asha` al `.claude/launch.json` del espacio de trabajo apuntando a `ashajewelry-site/publico`.
 5. Leer PENDIENTES.md y seguir por lo que Ernesto decida.
 
+## EN CURSO al cerrar la Máquina 2 (2-oct-2026): conectar ashamiami.com
+
+La rama `sitio-v1` va un commit por delante de `main` (dda228b): la web ya usa `https://ashamiami.com/` como dirección base. **No pasar a `main` hasta que los DNS respondan**, o el sitio publicado apuntará a un dominio que todavía no funciona.
+
+1. **Ernesto, en GoDaddy** (`ashamiami.com` → DNS): borrar los A de aparcamiento (`15.197.148.33`, `3.33.130.190`) y cualquier reenvío; añadir 4 registros A en `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; CNAME `www` → `cisnerosmusic.github.io`.
+2. Comprobar: `nslookup ashamiami.com 8.8.8.8` debe devolver las IP 185.199.x.153.
+3. Poner el dominio en Pages: `PUT https://api.github.com/repos/cisnerosmusic/ashajewelry-site/pages` con `{"cname":"ashamiami.com"}` (token del almacén de credenciales de git; nunca mostrarlo), o en Settings > Pages > Custom domain.
+4. Pasar `sitio-v1` a `main` (fast-forward) y push: se publica con la nueva base.
+5. Cuando GitHub emita el certificado (minutos u horas), activar "Enforce HTTPS" (`{"https_enforced":true}` en el mismo endpoint).
+6. Verificar: `https://ashamiami.com/` y `https://www.ashamiami.com/` cargan; `cisnerosmusic.github.io/ashajewelry-site/` redirige; las páginas siguen con `noindex`.
+
 ## Siguiente paso probable
 Enseñar la vista previa a Billy y recoger las respuestas de PENDIENTES.md (horas, WhatsApp, precios, envíos, fotos reales, licencia de Jitter, origen de la foto). Después, el lanzamiento con el dominio (README, sección "Lanzamiento").
