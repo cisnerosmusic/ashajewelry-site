@@ -101,7 +101,8 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 <link rel="preload" href="{r('fuentes/playfair-display-latin-600-normal.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{r('fuentes/raleway-latin-400-normal.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{r('css/sitio.css')}?v={v}">
-{jsonld(schema)}<script>document.documentElement.classList.add('con-js')</script>
+<link rel="stylesheet" href="{r('css/movimiento.css')}?v={v}">
+{jsonld(schema)}<script>(function(r){{r.classList.add('con-js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){{r.classList.add('con-movimiento');setTimeout(function(){{if(!r.classList.contains('movimiento-activo'))r.classList.remove('con-movimiento')}},2500)}}}})(document.documentElement)</script>
 </head>
 <body>
 {adornos.DEFS}
@@ -123,6 +124,7 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 </footer>
 <a class="contacto-fijo" href="{esc(href_c)}">{esc(etiqueta_c)}</a>
 <script src="{r('js/sitio.js')}?v={v}" defer></script>
+<script src="{r('js/movimiento.js')}?v={v}" defer></script>
 </body>
 </html>
 """

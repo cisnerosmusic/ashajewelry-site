@@ -76,6 +76,14 @@ class TestPlantilla(unittest.TestCase):
         self.assertIn('href="https://www.instagram.com/ashajewelryshop/"', h)
         self.assertIn('href="https://www.tiktok.com/@ashajewelryshop"', h)
 
+    def test_capa_de_movimiento_separable(self):
+        h = html()
+        self.assertIn('href="../css/movimiento.css?v=', h)
+        self.assertIn('src="../js/movimiento.js?v=', h)
+        # Sin movimiento reducido se activa en <head>, con red de seguridad.
+        self.assertIn("prefers-reduced-motion: reduce", h)
+        self.assertIn("movimiento-activo", h)
+
     def test_tx_con_campos(self):
         self.assertEqual(plantilla.tx(D, "msg_pieza", "es", nombre="Anillo", id="a1"),
                          "Hola, me interesa esta pieza de su web: Anillo (a1)")

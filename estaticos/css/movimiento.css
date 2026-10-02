@@ -1,0 +1,36 @@
+/* Capa de movimiento: separable y reversible. Quitar este archivo y
+   js/movimiento.js deja el sitio idéntico pero estático.
+   Ritmo cinematográfico: tiempos largos y curvas que frenan al final. */
+:root{
+  --curva:cubic-bezier(.22,.61,.36,1);
+  --curva-lenta:cubic-bezier(.16,1,.3,1);
+  --salida-cabecera:1.2s;
+  --entrada-cabecera:.8s;
+  --aparicion:1.4s;
+}
+
+/* Cabecera fija que se desvanece al bajar y vuelve al subir */
+.cabecera-fondo{position:sticky;top:0;z-index:20;
+  transition:opacity var(--entrada-cabecera) var(--curva-lenta),transform var(--entrada-cabecera) var(--curva-lenta),visibility 0s}
+.cabecera-fondo.cabecera-oculta{opacity:0;transform:translateY(-14px);visibility:hidden;
+  transition:opacity var(--salida-cabecera) var(--curva),transform var(--salida-cabecera) var(--curva),visibility 0s linear var(--salida-cabecera)}
+.categoria{scroll-margin-top:5.5rem}
+
+/* Apariciones al entrar en pantalla (solo con JS y sin movimiento reducido) */
+.con-movimiento main>section,.con-movimiento .tarjeta,.con-movimiento .servicio{
+  opacity:0;transform:translateY(28px);
+  transition:opacity var(--aparicion) var(--curva-lenta),transform var(--aparicion) var(--curva-lenta)}
+.con-movimiento main>section.visible,.con-movimiento .tarjeta.visible,.con-movimiento .servicio.visible{opacity:1;transform:none}
+/* La portada entra un poco más despacio, como un fundido de apertura */
+.con-movimiento main>.portada{transition-duration:1.8s}
+
+/* Gestos al pasar el ratón: más lentos y suaves que el cambio seco */
+.boton,#menu a,.filtros a,.tarjeta a h3,.pie a{transition:background-color .6s var(--curva),border-color .6s var(--curva),color .6s var(--curva)}
+.tarjeta-foto img{transition:transform 1.6s var(--curva-lenta)}
+.tarjeta a:hover .tarjeta-foto img{transform:scale(1.04)}
+
+@media (prefers-reduced-motion:reduce){
+  .cabecera-fondo,.cabecera-fondo.cabecera-oculta{transition:none}
+  .boton,#menu a,.filtros a,.tarjeta-foto img{transition:none}
+  .tarjeta a:hover .tarjeta-foto img{transform:none}
+}
