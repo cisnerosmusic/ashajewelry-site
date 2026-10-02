@@ -126,3 +126,14 @@ main:has(> .seccion-oscura:last-child)+.pie{margin-top:0}
 .contacto-fijo:focus-visible{outline-color:var(--oro-claro)}
 @media (min-width:48rem){.contacto-fijo{display:none}.pie{padding-bottom:2.5rem}}
 @media (prefers-reduced-motion:no-preference){.boton,#menu a,.filtros a{transition:background-color .2s,border-color .2s,color .2s}}
+
+/* Muestra de joyas (portada): foto de la pancarta sobre negro, con bandas doradas */
+.seccion-negra{background:var(--tinta);color:var(--blanco)}
+.seccion-negra h2{color:var(--oro-claro)}
+.seccion-negra a{color:var(--oro-claro)}
+.seccion-negra :focus-visible{outline-color:var(--oro-claro)}
+.seccion-negra .boton-principal{background:linear-gradient(135deg,#D5A332,#FDCF55 50%,#D5A332);color:var(--tinta)}
+.muestra{display:grid;gap:2rem;align-items:center}
+@media (min-width:48rem){.muestra{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}}
+.muestra-foto{max-width:26rem;margin:0 auto;padding:.6rem 0;background:linear-gradient(135deg,#D5A332,#FDCF55 50%,#D5A332);border-radius:4px}
+.muestra-foto img{width:100%;height:auto}

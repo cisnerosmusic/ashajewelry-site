@@ -62,9 +62,11 @@ class TestSitio(unittest.TestCase):
         self.assertIn("Oro auténtico 10K, 14K y 18K", h)
         self.assertIn("Foto próximamente", h)
         self.assertIn("tel:+17869781981", h)
+        self.assertIn('srcset="img/fotos/muestra-joyas-480.webp 480w', h)
 
     def test_promo_vigente_aparece(self):
         d = datos.cargar(RAIZ / "datos")
+        d["negocio"]["muestra_fotos"] = []
         d["promos"] = [{"id": "oct", "texto": {"es": "Dijes en oferta", "en": "Pendants on sale"},
                         "desde": "2026-10-01", "hasta": "2026-10-31"}]
         pags = dict(paginas.todas(d, {}, "2026-10-02"))
@@ -75,6 +77,7 @@ class TestSitio(unittest.TestCase):
     def test_precio_y_foto_real(self):
         d = datos.cargar(RAIZ / "datos")
         d = copy.deepcopy(d)
+        d["negocio"]["muestra_fotos"] = []
         d["piezas"][0]["precio"] = 1250
         d["piezas"][0]["fotos"] = ["dije"]
         man = {"dije": [[480, "img/fotos/dije-480.webp"], [960, "img/fotos/dije-960.webp"]]}

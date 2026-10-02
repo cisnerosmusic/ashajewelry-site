@@ -21,5 +21,6 @@
   "tiktok": "https://www.tiktok.com/@ashajewelryshop",
   "pagos": ["Affirm", "Afterpay", "Klarna", "Zip", "Shop Pay"],
   "fotos": [],
+  "muestra_fotos": ["muestra-joyas"],
   "provisional": true
 }

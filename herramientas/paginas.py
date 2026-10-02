@@ -72,6 +72,7 @@ def inicio(d, l, man, hoy):
 <p class="lema">{esc(tx(d, "lema", l))}</p>
 <div class="acciones"><a class="boton boton-principal" href="{esc(href_c)}">{esc(etiqueta_c)}</a> <a class="boton boton-borde" href="{esc(rel(aqui, ruta("como_llegar", l)))}">{esc(tx(d, "cta_como_llegar", l))}</a></div>
 </section>
+<section class="seccion seccion-negra"><div class="envoltura muestra"><div class="muestra-foto">{foto(d, l, aqui, {"fotos": d["negocio"]["muestra_fotos"]}, man, TAM_FICHA, tx(d, "muestra_alt", l), "eager")}</div><div><h2>{esc(tx(d, "muestra_t", l))}</h2><p>{esc(tx(d, "muestra_p", l))}</p><p><a class="boton boton-principal" href="{esc(rel(aqui, ruta("catalogo", l)))}">{esc(tx(d, "ver_catalogo", l))}</a></p></div></div></section>
 {bloque_promo}
 <section class="seccion envoltura"><h2>{esc(tx(d, "inicio_destacadas", l))}</h2><ul class="rejilla">{destacadas}</ul>
 <p class="mas"><a class="boton boton-borde" href="{esc(rel(aqui, ruta("catalogo", l)))}">{esc(tx(d, "ver_catalogo", l))}</a></p></section>
@@ -187,6 +188,8 @@ def _comprobar_fotos(d, man):
     faltan = [f"{x.get('id', 'negocio')}: foto {f} no está en img/originales/"
               for x in d["piezas"] + d["servicios"] + [d["negocio"]]
               for f in x.get("fotos", []) if f not in man]
+    faltan += [f"negocio.muestra_fotos: foto {f} no está en img/originales/"
+               for f in d["negocio"].get("muestra_fotos", []) if f not in man]
     if faltan:
         raise ErrorDatos("\n".join(faltan))
 

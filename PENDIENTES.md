@@ -13,6 +13,7 @@
 - [ ] Su historia: ¿tiene oficio previo? (El origen del nombre ya está resuelto como contexto interno; ver CLAUDE.md.)
 - [ ] Confirmar qué incluye cada servicio (`servicios.json`, hoy provisional).
 - [ ] Fotos de piezas reales (sustituyen a las 8 piezas provisionales).
+- [ ] Foto de la portada (`muestra-joyas.jpg`, sacada de la pancarta de la tienda): confirmar de dónde salió y si se puede usar en la web. Si es de un banco de imágenes, hace falta la licencia.
 - [ ] Permiso para mencionar y fotografiar Mercado Fresco y Más.
 - [ ] ¿Ficha de Google Business? Si no hay, crearla y verificarla.
 

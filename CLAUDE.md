@@ -8,6 +8,7 @@ Sitio estático generado desde datos. Lee [README.md](README.md) antes de tocar 
 - Sin raya larga en textos públicos; en código Python, escrita como `"—"`.
 - No publicar datos sin fuente: horas, WhatsApp, coordenadas y envíos no se publican hasta que el dueño los confirme. Lo no verificado va a PENDIENTES.md.
 - Sin fotos de stock ni generadas con IA: si falta una foto, el sitio pone el marco "Foto próximamente".
+- Excepción decidida por Ernesto (2-oct-2026): `img/originales/muestra-joyas.jpg` es la foto de la pancarta de la tienda, usada en la portada como muestra. Se asume que es de ASHA; su origen y licencia están por confirmar (PENDIENTES.md). No describir las piezas de esa foto como productos de la tienda.
 - Español en la raíz, inglés en `/en/`. Toda cadena nueva lleva las dos lenguas.
 - Dorado para texto solo `--oro-tinta`; `--oro` y `--oro-claro` no pasan AA como texto sobre claro.
 - Contexto interno, no para la web: "ASHA" combina los nombres de la familia del dueño (Billy). Decisión de Ernesto (2-oct-2026): los nombres de los hijos no se publican nunca en ningún lugar público, y la anécdota no va al sitio; se guarda solo como contexto para cuando haga falta.
