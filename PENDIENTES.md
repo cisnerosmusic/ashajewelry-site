@@ -10,7 +10,7 @@
 - [ ] Quilataje de cada pieza (10K, 14K o 18K): hoy las fichas dicen solo "Oro". Requiere añadir el campo `quilataje` a `piezas.json` y mostrarlo.
 - [ ] ¿Precios visibles, rangos o "Consultar precio"? Sin precio, Google marcará las fichas `Product` como incompletas tras el lanzamiento.
 - [ ] ¿Usa Shopify POS? (acepta Shop Pay). Si lo usa, se podría importar el catálogo.
-- [ ] Su historia: si tiene oficio previo y de dónde viene el nombre "Asha".
+- [ ] Su historia. Ya sabemos de dónde viene el nombre (dato de Ernesto, 2-oct-2026): el dueño es Billy, y "Asha" combina los nombres de sus hijos y el de su esposa; Billy es el único que no sale en el nombre. Falta saber si tiene oficio previo y si quiere contar el origen del nombre en la web. Si quiere, contarlo **sin los nombres de los hijos** salvo permiso expreso de la familia.
 - [ ] Confirmar qué incluye cada servicio (`servicios.json`, hoy provisional).
 - [ ] Fotos de piezas reales (sustituyen a las 8 piezas provisionales).
 - [ ] Permiso para mencionar y fotografiar Mercado Fresco y Más.
