@@ -108,7 +108,7 @@ README.md · CLAUDE.md · PENDIENTES.md
 
 **Reglas:**
 - **Nunca editar HTML a mano**: se cambian `datos/` o `herramientas/` y se regenera con `python herramientas/sitio.py`.
-- **`BASE`**: prefijo de rutas configurable. Vale `/ashajewelry-site/` en la vista previa de GitHub Pages y `/` con el dominio.
+- **Enlaces relativos**: todos los enlaces internos son relativos (`rutas.rel`), así que el mismo `publico/` funciona en `/ashajewelry-site/` y en el dominio. Solo canónicas, hreflang, sitemap y Open Graph usan URL absoluta, con `config.url_publica()`: la vista previa mientras `LANZADO = False` y `https://ashajewelryusa.com/` después.
 - **`LANZADO`**:
   - Con `LANZADO = False` (el estado actual), cada página lleva `<meta name="robots" content="noindex">` y `robots.txt` bloquea a todos los buscadores.
   - Con `LANZADO = True`: se quita el `noindex`, se genera el `sitemap.xml` con URLs absolutas de `https://ashajewelryusa.com` y se escribe `publico/CNAME`.
@@ -164,7 +164,7 @@ Todo va con `provisional: true` y sin precio:
 - **Conexión del dominio** (fase posterior):
   1. Añadir la zona en Cloudflare (cuenta de Index01) y que el cliente cambie los NS en GoDaddy.
   2. Crear los registros DNS hacia GitHub Pages y poner el dominio personalizado.
-  3. `BASE = "/"`, `LANZADO = True`, regenerar y push.
+  3. `LANZADO = True`, regenerar y push.
 
 ## 10. Verificación
 
