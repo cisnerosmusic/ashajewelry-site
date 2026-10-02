@@ -16,7 +16,7 @@ Todo el contenido vive en `datos/*.json` (español e inglés en cada campo). `he
 |---|---|
 | Añadir una pieza | `datos/piezas.json` y su foto en `img/originales/<nombre>.jpg` (en `fotos` va el nombre sin extensión) |
 | Poner precio | `"precio": 250` en la pieza (`null` muestra "Consultar precio") |
-| Anunciar una promo | `datos/promos.json` con `desde` y `hasta`; se oculta sola al vencer |
+| Anunciar una promo | `datos/promos.json` con `desde` y `hasta` (AAAA-MM-DD). La fecha se mira al generar: regenerar y hacer push el día que empieza y el día que termina |
 | Cambiar horario, teléfono, WhatsApp | `datos/negocio.json` |
 | Cambiar un texto | `datos/textos.json` |
 | Cambiar colores o diseño | `estaticos/css/sitio.css` y subir `VERSION` en `herramientas/config.py` |

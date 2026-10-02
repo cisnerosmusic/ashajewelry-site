@@ -24,6 +24,7 @@ h3{font-size:1.2rem}
 a{color:var(--oro-tinta)}
 img{max-width:100%;height:auto;display:block}
 :focus-visible{outline:3px solid var(--oro-tinta);outline-offset:2px}
+.pie :focus-visible{outline-color:var(--oro-claro)}
 .saltar{position:absolute;left:-999px;top:0}
 .saltar:focus{left:1rem;top:1rem;background:var(--blanco);padding:.5rem 1rem;z-index:10}
 

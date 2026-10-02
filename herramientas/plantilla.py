@@ -101,7 +101,8 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 <link rel="preload" href="{r('fuentes/playfair-display-latin-600-normal.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{r('fuentes/montserrat-latin-400-normal.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{r('css/sitio.css')}?v={v}">
-{jsonld(schema)}</head>
+{jsonld(schema)}<script>document.documentElement.classList.add('con-js')</script>
+</head>
 <body>
 <a class="saltar" href="#contenido">{esc(tx(d, "saltar", l))}</a>
 <header class="cabecera">

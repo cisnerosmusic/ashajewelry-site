@@ -6,7 +6,7 @@
 LANZADO = False
 DOMINIO = "https://ashajewelryusa.com/"
 VISTA_PREVIA = "https://cisnerosmusic.github.io/ashajewelry-site/"
-VERSION = "1"  # súbela cada vez que cambien estaticos/css o estaticos/js
+VERSION = "2"  # súbela cada vez que cambien estaticos/css o estaticos/js
 IDIOMAS = ("es", "en")
 
 
