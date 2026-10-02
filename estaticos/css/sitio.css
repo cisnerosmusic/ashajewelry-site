@@ -1,6 +1,6 @@
 @font-face{font-family:"Playfair Display";src:url(../fuentes/playfair-display-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:Montserrat;src:url(../fuentes/montserrat-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:Montserrat;src:url(../fuentes/montserrat-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:Raleway;src:url(../fuentes/raleway-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Raleway;src:url(../fuentes/raleway-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
 
 /* Reparto: fondo claro (azul claro) con texto negro; bloques oscuros (azul
    marino) y pie (negro) con texto blanco u oro. El dorado nunca va sobre claro. */
@@ -18,7 +18,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--claro);color:var(--tinta);font:400 1rem/1.6 Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;background:var(--claro);color:var(--tinta);font:400 1rem/1.6 Raleway,system-ui,-apple-system,"Segoe UI",sans-serif}
 h1,h2,h3{font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.2;margin:0 0 .5em}
 h1{font-size:clamp(2rem,6vw,3.25rem)}
 h2{font-size:clamp(1.5rem,4vw,2.25rem)}
@@ -63,7 +63,7 @@ img{max-width:100%;height:auto;display:block}
 .portada{padding:3.5rem 1rem 3rem;text-align:center}
 .logotipo{margin:0;line-height:1}
 .logo-portada{display:block;width:min(100%,26rem);height:auto;margin:0 auto}
-.logo-miami{display:block;margin-top:1rem;font-family:Montserrat,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.45em;text-transform:uppercase;color:var(--blanco);padding-left:.45em}
+.logo-miami{display:block;margin-top:1rem;font-family:Raleway,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.45em;text-transform:uppercase;color:var(--blanco);padding-left:.45em}
 .separador{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:1.5rem auto}
 .separador span{width:3.5rem;height:1px;background:var(--oro)}
 .estrella-sep{width:.9rem;height:.9rem}

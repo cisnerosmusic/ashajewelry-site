@@ -21,7 +21,7 @@ from herramientas.adornos import CAJA_DIAMANTE, DIAMANTE, LOGO, ORO, ORO_CLARO  
 
 OSCURO = "#102A43"
 BLANCO = "#FFFFFF"
-LETRA = RAIZ / "estaticos" / "fuentes" / "montserrat-latin-600-normal.woff2"
+LETRA = RAIZ / "estaticos" / "fuentes" / "raleway-latin-600-normal.woff2"
 ESCALA = 4  # supermuestreo para bordes limpios
 
 

@@ -99,7 +99,7 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 <link rel="icon" href="{r('favicon-32.png')}" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{r('apple-touch-icon.png')}">
 <link rel="preload" href="{r('fuentes/playfair-display-latin-600-normal.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{r('fuentes/montserrat-latin-400-normal.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{r('fuentes/raleway-latin-400-normal.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{r('css/sitio.css')}?v={v}">
 {jsonld(schema)}<script>document.documentElement.classList.add('con-js')</script>
 </head>
