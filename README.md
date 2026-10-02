@@ -2,7 +2,7 @@
 
 Sitio de ASHA Jewelry Miami ([Instagram](https://www.instagram.com/ashajewelryshop/) · [TikTok](https://www.tiktok.com/@ashajewelryshop)), joyería en el kiosko 2 dentro de Mercado Fresco y Más (12107 SW 152nd St, Miami, FL 33177). Hecho por [Index01](https://index01.net).
 
-- **Vista previa:** https://cisnerosmusic.github.io/ashajewelry-site/ (con `noindex` hasta el lanzamiento)
+- **Vista previa:** https://ashamiami.com/ (dominio provisional de Ernesto, con `noindex` hasta el lanzamiento; `cisnerosmusic.github.io/ashajewelry-site` redirige allí)
 - **Dominio principal:** ashajewelryusa.com (GoDaddy, del cliente; aún sin conectar)
 - **Dominios secundarios:** ashajewelrymiami.com y ashamiami.com (comprados el 2-oct-2026; se redirigen al principal en el lanzamiento)
 - **Contexto, decisiones y estado:** `CONTEXTO.md` (léelo primero)

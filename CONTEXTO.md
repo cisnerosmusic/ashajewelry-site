@@ -8,7 +8,7 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 - Público en persona: 66 % hispanohablante, por eso el español va en la raíz y el inglés en `/en/`.
 - Oro 10K, 14K y 18K, plata, reparación, ajuste de anillos, grabado y piezas a medida (dijes con nombre, iniciales). Financiamiento con Affirm, Afterpay, Klarna, Zip y Shop Pay, más layaway.
 - Redes: Instagram y TikTok @ashajewelryshop. El TikTok dice "Shipping available · USA" (envíos sin confirmar).
-- Dominios del cliente: **ashajewelryusa.com** (principal, GoDaddy, sin uso, vence el 14-jun-2029), ashajewelrymiami.com y ashamiami.com (comprados el 2-oct-2026, para redirigir al principal).
+- Dominios: **ashajewelryusa.com** (del cliente, definitivo, GoDaddy, sin uso, vence el 14-jun-2029). **ashamiami.com** (de Ernesto, GoDaddy, comprado el 2-oct-2026): vista previa provisional. ashajewelrymiami.com: comprado según Ernesto, pero el registro público no lo mostraba el 2-oct-2026; revisar.
 
 ## Marca
 - Logo diseñado por **Adys**. El kit completo (`.ai`, PDF, PNG y Ficha Gráfica) está en `marca/LOGO-kit-Adys.zip` (y en el Drive de Ernesto, carpeta `ASHA Joyeria/Logo/De Adys`). La Ficha Gráfica es un primer intento de guía, no una norma cerrada.
@@ -31,7 +31,7 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 | `noindex` hasta conectar el dominio | Que Google no indexe la vista previa |
 
 ## Estado
-- **Vista previa en vivo**: https://cisnerosmusic.github.io/ashajewelry-site/ (GitHub Pages vía Actions; `noindex`).
+- **Vista previa en vivo**: https://ashamiami.com/ (GitHub Pages vía Actions; `noindex`). Es un dominio **provisional** de Ernesto (GoDaddy, DNS apuntando a GitHub Pages); el definitivo será ashajewelryusa.com. GitHub Pages admite un solo dominio: al lanzar, se cambia el dominio personalizado en Settings > Pages, `LANZADO = True` y `ashamiami.com` puede quedar redirigiendo.
 - 35 páginas (ES y EN), 13 elementos provisionales (8 piezas, 4 servicios y la ficha del negocio).
 - Pruebas: `python -m unittest discover -s tests -t .` (68 pruebas, todas en verde al cerrar).
 - Ramas: `main` (publicado) y `sitio-v1` (trabajo), iguales al cerrar.

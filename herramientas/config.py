@@ -5,7 +5,9 @@
 # ashajewelryusa.com se pone a True y se regenera.
 LANZADO = False
 DOMINIO = "https://ashajewelryusa.com/"
-VISTA_PREVIA = "https://cisnerosmusic.github.io/ashajewelry-site/"
+# Vista previa en un dominio provisional (decisión de Ernesto, 2-oct-2026):
+# ashamiami.com sirve el sitio con noindex hasta el lanzamiento en ashajewelryusa.com.
+VISTA_PREVIA = "https://ashamiami.com/"
 VERSION = "16"  # súbela cada vez que cambien estaticos/css o estaticos/js
 IDIOMAS = ("es", "en")
 
