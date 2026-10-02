@@ -16,13 +16,17 @@
   transition:opacity var(--salida-cabecera) var(--curva),transform var(--salida-cabecera) var(--curva),visibility 0s linear var(--salida-cabecera)}
 .categoria{scroll-margin-top:5.5rem}
 
-/* Apariciones al entrar en pantalla (solo con JS y sin movimiento reducido) */
-.con-movimiento main>section,.con-movimiento .tarjeta,.con-movimiento .servicio{
+/* Apariciones al entrar en pantalla (solo con JS y sin movimiento reducido).
+   Los fondos de las secciones quedan firmes; lo que aparece es su contenido. */
+.con-movimiento main>section>*,.con-movimiento .tarjeta,.con-movimiento .servicio{
   opacity:0;transform:translateY(28px);
   transition:opacity var(--aparicion) var(--curva-lenta),transform var(--aparicion) var(--curva-lenta)}
-.con-movimiento main>section.visible,.con-movimiento .tarjeta.visible,.con-movimiento .servicio.visible{opacity:1;transform:none}
-/* La portada entra un poco más despacio, como un fundido de apertura */
-.con-movimiento main>.portada{transition-duration:1.8s}
+.con-movimiento main>section.visible>*,.con-movimiento .tarjeta.visible,.con-movimiento .servicio.visible{opacity:1;transform:none}
+/* Portada: fundido de apertura, más lento y escalonado (logo, separador, lema, botones) */
+.con-movimiento .portada>*{transition-duration:1.8s}
+.con-movimiento .portada>:nth-child(2){transition-delay:.35s}
+.con-movimiento .portada>:nth-child(3){transition-delay:.6s}
+.con-movimiento .portada>:nth-child(4){transition-delay:.85s}
 
 /* Gestos al pasar el ratón: más lentos y suaves que el cambio seco */
 .boton,#menu a,.filtros a,.tarjeta a h3,.pie a{transition:background-color .6s var(--curva),border-color .6s var(--curva),color .6s var(--curva)}

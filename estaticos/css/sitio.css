@@ -44,9 +44,9 @@ img{max-width:100%;height:auto;display:block}
 
 /* Cabecera (sobre claro) */
 .cabecera{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem 1.5rem;max-width:var(--ancho);margin:0 auto;padding:.75rem 1rem}
-.marca{display:flex;align-items:flex-end;gap:.6rem;text-decoration:none;color:var(--blanco);line-height:1}
+.marca{display:flex;flex-direction:column;align-items:center;gap:.35rem;text-decoration:none;color:var(--blanco);line-height:1}
 .marca-letras{width:7.5rem;height:auto;display:block}
-.marca small{font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;padding-bottom:.1rem}
+.marca small{font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;padding-left:.3em}
 #menu ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 #menu a{display:inline-block;text-decoration:none;color:var(--blanco);font-weight:600;font-size:.95rem;padding:.35rem 0;border-bottom:2px solid transparent}
 #menu a:hover,#menu a[aria-current=page]{border-bottom-color:var(--oro)}
