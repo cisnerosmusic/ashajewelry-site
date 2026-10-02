@@ -615,7 +615,7 @@ class TestRayas(unittest.TestCase):
     def test_detecta_raya(self):
         with tempfile.TemporaryDirectory() as tmp:
             f = Path(tmp) / "a.html"
-            f.write_text("hola — mundo", encoding="utf-8")
+            f.write_text("hola \u2014 mundo", encoding="utf-8")
             self.assertEqual(len(comprobar.comprobar_rayas([f])), 1)
 
     def test_sin_raya(self):
@@ -676,7 +676,7 @@ import html
 import re
 from pathlib import Path
 
-RAYA = "—"
+RAYA = "\u2014"
 MINIMO_AA = 4.5
 # (texto, fondo): cada par que el CSS usa para texto debe cumplir AA.
 PARES_TEXTO = [
