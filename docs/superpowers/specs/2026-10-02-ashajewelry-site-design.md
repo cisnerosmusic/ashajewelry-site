@@ -6,7 +6,7 @@ Fecha: 2026-10-02 · Estado: aprobado por Ernesto, pendiente de plan de implemen
 
 Asha Jewelry Miami es una joyería en un kiosko dentro del supermercado Mercado Fresco y Más (12107 SW 152nd St, Kiosk 2, Miami, FL 33177). Abrió el 14 de abril de 2026. El dueño es amigo de Ernesto y el local queda junto a su casa. Cliente de Index01.
 
-Hoy no tiene web ni ficha de Google detectable. Su única presencia es Instagram [@ashajewelryshop](https://www.instagram.com/ashajewelryshop/): unos 163 seguidores, solo reels y textos en español.
+Hoy no tiene web ni ficha de Google detectable. Está en Instagram [@ashajewelryshop](https://www.instagram.com/ashajewelryshop/) (unos 163 seguidores, solo reels, textos en español) y en TikTok [@ashajewelryshop](https://www.tiktok.com/@ashajewelryshop) ("ASHA Jewelry", 152 seguidores, 60 vídeos, 660 me gusta; bio en inglés: "Fine Jewelry · USA · Shipping available · DM for price & Products").
 
 El objetivo del sitio, por orden de importancia:
 
@@ -30,6 +30,7 @@ No es una tienda online. En esta fase es una vitrina.
 | Servicios | Reparación de joyería, ajuste de talla de anillos, grabado, fabricación y piezas personalizadas (dijes con nombre, iniciales) |
 | Pago | Affirm, Afterpay, Shop Pay, Klarna, Zip. Financiamiento y layaway |
 | Promos ya hechas | Sorteo del Día de las Madres (por cada $150 de compra), dijes en agosto, iniciales y aretes para el regreso a clases |
+| Envíos | Su TikTok dice "Shipping available" y "USA". **Alcance y condiciones: pendiente.** No se publica hasta confirmarlo |
 | Tono | Cercano y juguetón ("Si pasas por aquí te garantizo que no te vas con las manos vacías") |
 
 Lo que no está verificado no se publica: se anota en `PENDIENTES.md`.
@@ -138,7 +139,7 @@ README.md · CLAUDE.md · PENDIENTES.md
 **Tipografía:** Playfair Display en los títulos (estilo del "ASHA" del logo) y Montserrat en el texto (la de "JEWELRY", confirmada por Ernesto).
 
 **Logo y favicon:**
-- Mientras llega el original, se usa la foto de perfil de Instagram (150×150, marcada como provisional).
+- Mientras llega el original en vector, se usa el avatar de TikTok (807×807, el mismo diseño que en Instagram pero nítido), reducido a 480 px y recortado en círculo. Sus colores medidos coinciden con los de Instagram (aqua `#CFF2F6`, oro medio alrededor de `#C0911D`), así que la paleta no cambia.
 - El favicon es la "A" dorada sobre un círculo aqua, como en sus historias destacadas, en SVG, PNG de 192 y 512 y `apple-touch-icon`.
 
 **Imágenes provisionales:** marcos aqua con la "A" dorada y el texto "Foto próximamente / Photo coming soon". Sin fotos de stock ni generadas con IA.
@@ -183,7 +184,8 @@ Antes de cada push:
 
 ## 11. Pendientes del cliente (van a PENDIENTES.md)
 
-1. Logo original en alta resolución (PNG grande, SVG o Canva) y nombre de la serif del logo.
+1. Logo original en vector o PNG transparente (SVG o Canva) y nombre de la serif del logo. Ya tenemos una versión de 807 px de TikTok.
+1. Envíos: si envía a todo EE. UU. y con qué condiciones (lo anuncia en TikTok).
 2. Horas de apertura exactas.
 3. Si 786-978-1981 es su WhatsApp, o cuál lo es.
 4. Si quiere precios visibles, rangos o "Consultar precio".
