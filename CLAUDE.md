@@ -9,5 +9,6 @@ Sitio estático generado desde datos. Lee [README.md](README.md) antes de tocar 
 - Sin fotos de stock ni generadas con IA: si falta una foto, el sitio pone el marco "Foto próximamente".
 - Español en la raíz, inglés en `/en/`. Toda cadena nueva lleva las dos lenguas.
 - Dorado para texto solo `--oro-tinta`; `--oro` y `--oro-claro` no pasan AA como texto sobre claro.
+- Contexto interno, no para la web: "Asha" combina los nombres de la familia del dueño (Billy). Decisión de Ernesto (2-oct-2026): los nombres de los hijos no se publican nunca en ningún lugar público, y la anécdota no va al sitio; se guarda solo como contexto para cuando haga falta.
 - No es ASHA by Ashley McCormick (Palm Beach) ni Asha Jewelry de Australia (ashajewelry.com).
 - Antes de push: `python -m unittest discover -s tests -t .`, regenerar y revisar en el navegador (`python -m http.server 8430 --directory publico`).
