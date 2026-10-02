@@ -71,6 +71,11 @@ class TestPlantilla(unittest.TestCase):
         self.assertIn('Sitio por <a href="https://index01.net">Index01</a>', html())
         self.assertIn('Website by <a href="https://index01.net">Index01</a>', html(l="en", aqui="en/catalog/"))
 
+    def test_redes_en_el_pie(self):
+        h = html()
+        self.assertIn('href="https://www.instagram.com/ashajewelryshop/"', h)
+        self.assertIn('href="https://www.tiktok.com/@ashajewelryshop"', h)
+
     def test_tx_con_campos(self):
         self.assertEqual(plantilla.tx(D, "msg_pieza", "es", nombre="Anillo", id="a1"),
                          "Hola, me interesa esta pieza de su web: Anillo (a1)")

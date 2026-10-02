@@ -7,7 +7,7 @@ from herramientas.config import IDIOMAS
 
 NOMBRES = ("negocio", "textos", "servicios", "categorias", "piezas", "promos")
 NEGOCIO_OBLIGATORIO = ("nombre", "direccion", "dentro_de", "telefono",
-                       "telefono_visible", "dias", "instagram", "pagos")
+                       "telefono_visible", "dias", "instagram", "tiktok", "pagos")
 
 
 class ErrorDatos(Exception):

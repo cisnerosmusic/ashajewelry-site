@@ -33,7 +33,7 @@ def tienda(d, l):
         "containedInPlace": {"@type": "GroceryStore", "name": n["dentro_de"],
                              "address": _direccion(n["direccion"], False)},
         "paymentAccepted": ", ".join(n["pagos"] + ["Layaway"]),
-        "sameAs": [n["instagram"]],
+        "sameAs": [n["instagram"], n["tiktok"]],
     }
     if n.get("apertura"):
         t["foundingDate"] = n["apertura"]

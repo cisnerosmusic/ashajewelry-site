@@ -115,7 +115,7 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 <footer class="pie">
 <div class="pie-fila">
 <p><strong>{esc(n["nombre"])}</strong><br>{esc(tx(d, "dentro_de", l))}<br>{esc(direccion_corta(d))}</p>
-<p>{esc(tx(d, "horario", l))}<br><a href="tel:{esc(n["telefono"])}">{esc(n["telefono_visible"])}</a><br><a href="{esc(n["instagram"])}" rel="noopener">Instagram @ashajewelryshop</a></p>
+<p>{esc(tx(d, "horario", l))}<br><a href="tel:{esc(n["telefono"])}">{esc(n["telefono_visible"])}</a><br><a href="{esc(n["instagram"])}" rel="noopener">Instagram</a> · <a href="{esc(n["tiktok"])}" rel="noopener">TikTok</a> @ashajewelryshop</p>
 </div>
 <p class="pie-legal">© 2026 {esc(n["nombre"])} · {esc(tx(d, "credito", l))} <a href="https://index01.net">Index01</a></p>
 </footer>

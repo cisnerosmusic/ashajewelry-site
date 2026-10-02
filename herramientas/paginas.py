@@ -244,4 +244,5 @@ Desambiguación / Disambiguation: no es ASHA by Ashley McCormick (Palm Beach) ni
 - [Servicios]({base}{ruta("servicios", "es")})
 - [Cómo llegar]({base}{ruta("como_llegar", "es")})
 - [Instagram]({n["instagram"]})
+- [TikTok]({n["tiktok"]})
 """

@@ -18,6 +18,7 @@ class TestSchema(unittest.TestCase):
         self.assertEqual(t["address"]["postalCode"], "33177")
         self.assertIn("Klarna", t["paymentAccepted"])
         self.assertIn("https://www.instagram.com/ashajewelryshop/", t["sameAs"])
+        self.assertIn("https://www.tiktok.com/@ashajewelryshop", t["sameAs"])
 
     def test_sin_horas_no_hay_horario(self):
         self.assertNotIn("openingHoursSpecification", schema.tienda(D, "es"))
