@@ -30,9 +30,16 @@ img{max-width:100%;height:auto;display:block}
 .saltar:focus{left:1rem;top:1rem;background:var(--claro);padding:.5rem 1rem;z-index:10}
 
 /* Contextos oscuros: texto blanco, acentos en oro */
-.portada,.seccion-oscura,.servicio,.marco{background:var(--oscuro);color:var(--blanco)}
+.cabecera-fondo,.portada,.seccion-oscura,.servicio,.marco{background:var(--oscuro);color:var(--blanco)}
+.seccion-oscura h2{color:var(--oro-claro)}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+/* Texto con el degradado dorado del logo; sin soporte, oro plano */
+.logo-asha,.marca span{color:var(--oro-claro)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .logo-asha,.marca span{background:linear-gradient(180deg,#F0D07C,#E2B954 45%,#C2943A);-webkit-background-clip:text;background-clip:text;color:transparent}
+}
 .portada a,.seccion-oscura a,.servicio a{color:var(--oro-claro)}
-.portada :focus-visible,.seccion-oscura :focus-visible,.servicio :focus-visible,.pie :focus-visible{outline-color:var(--oro-claro)}
+.cabecera-fondo :focus-visible,.portada :focus-visible,.seccion-oscura :focus-visible,.servicio :focus-visible,.pie :focus-visible{outline-color:var(--oro-claro)}
 
 .envoltura{max-width:var(--ancho);margin:0 auto;padding:0 1rem}
 .seccion{padding:3rem 0}
@@ -40,14 +47,14 @@ img{max-width:100%;height:auto;display:block}
 
 /* Cabecera (sobre claro) */
 .cabecera{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem 1.5rem;max-width:var(--ancho);margin:0 auto;padding:.75rem 1rem}
-.marca{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--tinta);font-family:"Playfair Display",Georgia,serif;font-size:1.3rem;font-weight:600}
-.marca img{border-radius:50%}
-.marca small{display:block;font-family:Montserrat,sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--tinta)}
+.marca{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-family:"Playfair Display",Georgia,serif;font-size:1.6rem;font-weight:600;letter-spacing:.06em;line-height:1}
+.marca-diamante{width:2.6rem;height:auto;flex:none}
+.marca small{display:block;margin-top:.3rem;font-family:Montserrat,sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--blanco);-webkit-text-fill-color:var(--blanco)}
 #menu ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
-#menu a{display:inline-block;text-decoration:none;color:var(--tinta);font-weight:600;font-size:.95rem;padding:.35rem 0;border-bottom:2px solid transparent}
-#menu a:hover,#menu a[aria-current=page]{border-bottom-color:var(--oscuro)}
-#menu a.idioma{text-decoration:underline}
-.menu-boton{font:inherit;font-weight:600;background:none;border:2px solid var(--oscuro);border-radius:999px;padding:.35rem 1rem;color:var(--tinta);cursor:pointer}
+#menu a{display:inline-block;text-decoration:none;color:var(--blanco);font-weight:600;font-size:.95rem;padding:.35rem 0;border-bottom:2px solid transparent}
+#menu a:hover,#menu a[aria-current=page]{border-bottom-color:var(--oro)}
+#menu a.idioma{color:var(--oro-claro)}
+.menu-boton{font:inherit;font-weight:600;background:none;border:2px solid var(--oro);border-radius:999px;padding:.35rem 1rem;color:var(--blanco);cursor:pointer}
 @media (max-width:47.99rem){
   .con-js #menu{display:none;width:100%}
   .con-js #menu.abierto{display:block}
@@ -57,9 +64,14 @@ img{max-width:100%;height:auto;display:block}
 
 /* Portada (oscura) */
 .portada{padding:3.5rem 1rem 3rem;text-align:center}
-.portada h1{color:var(--blanco)}
-.portada .insignia{margin:0 auto 1.5rem;border-radius:50%}
-.ornamento{width:4rem;height:2px;background:var(--oro);border:0;margin:1.25rem auto}
+.corona{display:block;width:min(100%,22rem);height:auto;margin:0 auto .25rem}
+.logotipo{margin:0;line-height:1}
+.logo-asha{display:block;font-size:clamp(4rem,18vw,7rem);letter-spacing:.05em}
+.logo-jewelry{display:block;margin-top:.6rem;font-family:Montserrat,sans-serif;font-size:clamp(.95rem,3.5vw,1.25rem);font-weight:600;letter-spacing:.5em;text-transform:uppercase;color:var(--oro-claro);padding-left:.5em}
+.logo-miami{display:block;margin-top:.5rem;font-family:Montserrat,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.45em;text-transform:uppercase;color:var(--blanco);padding-left:.45em}
+.separador{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:1.5rem auto}
+.separador span{width:3.5rem;height:1px;background:var(--oro)}
+.estrella-sep{width:.9rem;height:.9rem}
 .lema{font-size:1.15rem;max-width:36rem;margin:0 auto 1.75rem;color:var(--oro-claro)}
 .acciones{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
 .entradilla{font-size:1.1rem;max-width:42rem}
@@ -70,7 +82,7 @@ img{max-width:100%;height:auto;display:block}
 .boton-principal:hover{background:var(--tinta)}
 .boton-borde{border-color:var(--oscuro);color:var(--tinta);background:transparent}
 .boton-borde:hover{background:var(--oscuro);color:var(--blanco)}
-.portada .boton-principal,.seccion-oscura .boton-principal{background:var(--oro);color:var(--tinta)}
+.portada .boton-principal,.seccion-oscura .boton-principal{background:linear-gradient(180deg,#F0D07C,#E2B954 45%,#C2943A);color:var(--tinta)}
 .portada .boton-principal:hover,.seccion-oscura .boton-principal:hover{background:var(--oro-claro)}
 .portada .boton-borde,.seccion-oscura .boton-borde{border-color:var(--oro);color:var(--blanco)}
 .portada .boton-borde:hover,.seccion-oscura .boton-borde:hover{background:var(--oro);color:var(--tinta)}
@@ -86,7 +98,7 @@ img{max-width:100%;height:auto;display:block}
 .material{color:var(--gris);font-size:.9rem;margin:0}
 .precio{color:var(--tinta);font-weight:600;margin:.25rem 0 0}
 .marco{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;color:var(--oro-claro)}
-.marco-a{font-family:"Playfair Display",Georgia,serif;font-size:2.5rem;width:4.5rem;height:4.5rem;border:2px solid var(--oro);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.marco-diamante{width:4.5rem;height:auto}
 .marco-t{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
 .filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 0}
 .filtros a{border:2px solid var(--oscuro);border-radius:999px;padding:.35rem 1rem;text-decoration:none;color:var(--tinta);font-weight:600;font-size:.9rem}

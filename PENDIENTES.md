@@ -1,7 +1,7 @@
 # Pendientes
 
 ## Del cliente
-- [ ] Logo original en vector o PNG transparente (SVG o el diseño de Canva). Hoy se usa el avatar de TikTok de 807 px reducido a 480 (`estaticos/img/insignia.jpg`): sirve para la web, pero tiene fondo blanco.
+- [ ] Logo original en vector (SVG o el diseño de Canva). Mientras tanto, el diamante, las estrellas y las florituras están redibujados en SVG (`herramientas/adornos.py`) a partir de la versión dorada sobre oscuro, y "ASHA" se compone con Playfair Display. Si llega el original, comparar y ajustar.
 - [ ] Nombre de la serif del logo. Montserrat confirmada para "JEWELRY"; en la web se usa Playfair Display en los títulos.
 - [ ] Horas exactas de apertura: van en `negocio.json` como `"horas": {"abre": "10:00", "cierra": "19:00"}`.
 - [ ] ¿786-978-1981 es su WhatsApp? Si lo es: `"whatsapp": "+17869781981"`. Hasta entonces los botones llaman por teléfono.

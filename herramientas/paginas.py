@@ -1,6 +1,6 @@
 """Contenido de cada página. `todas()` devuelve [(archivo, html), ...] de las
 dos lenguas más la 404."""
-from herramientas import config, schema
+from herramientas import adornos, config, schema
 from herramientas.datos import ErrorDatos, promo_vigente
 from herramientas.plantilla import direccion_corta, enlace_contacto, esc, pagina, tx, url_mapa
 from herramientas.rutas import SECCIONES, archivo, rel, ruta, ruta_pieza, ruta_servicio
@@ -22,7 +22,7 @@ def precio(d, l, p):
 
 def marco(d, l):
     t = esc(tx(d, "foto_proximamente", l))
-    return (f'<div class="marco" role="img" aria-label="{t}"><span class="marco-a" aria-hidden="true">A</span>'
+    return (f'<div class="marco" role="img" aria-label="{t}">{adornos.diamante("diamante marco-diamante", 3)}'
             f'<span class="marco-t" aria-hidden="true">{t}</span></div>')
 
 
@@ -67,9 +67,9 @@ def inicio(d, l, man, hoy):
         f'<a href="{esc(rel(aqui, ruta_servicio(s, l)))}">{esc(tx(d, "ver_mas", l))}</a></li>'
         for s in d["servicios"])
     cuerpo = f"""<section class="portada">
-<img class="insignia" src="{esc(rel(aqui, "img/insignia.jpg"))}" width="120" height="120" alt="ASHA Jewelry">
-<h1>ASHA Jewelry Miami</h1>
-<hr class="ornamento">
+{adornos.corona()}
+<h1 class="logotipo"><span class="logo-asha">ASHA</span> <span class="logo-jewelry">Jewelry</span> <span class="logo-miami">Miami</span></h1>
+{adornos.separador()}
 <p class="lema">{esc(tx(d, "lema", l))}</p>
 <div class="acciones"><a class="boton boton-principal" href="{esc(href_c)}">{esc(etiqueta_c)}</a> <a class="boton boton-borde" href="{esc(rel(aqui, ruta("como_llegar", l)))}">{esc(tx(d, "cta_como_llegar", l))}</a></div>
 </section>

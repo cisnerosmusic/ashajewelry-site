@@ -3,7 +3,7 @@ import html
 import json
 import urllib.parse
 
-from herramientas import config
+from herramientas import adornos, config
 from herramientas.rutas import rel, ruta
 
 MENU = ("catalogo", "servicios", "financiamiento", "como_llegar")
@@ -94,7 +94,7 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 <meta property="og:url" content="{base}{aqui}">
 <meta property="og:image" content="{base}img/og.png">
 <meta property="og:locale" content="{locale}">
-<meta name="theme-color" content="#CFF2F6">
+<meta name="theme-color" content="#102A43">
 <link rel="icon" href="{r('favicon.svg')}" type="image/svg+xml">
 <link rel="icon" href="{r('favicon-32.png')}" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{r('apple-touch-icon.png')}">
@@ -104,12 +104,13 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 {jsonld(schema)}<script>document.documentElement.classList.add('con-js')</script>
 </head>
 <body>
+{adornos.DEFS}
 <a class="saltar" href="#contenido">{esc(tx(d, "saltar", l))}</a>
-<header class="cabecera">
-<a class="marca" href="{r(ruta("inicio", l))}"><img src="{r('img/insignia.jpg')}" width="56" height="56" alt=""><span>ASHA Jewelry<small>Miami</small></span></a>
+<header class="cabecera-fondo"><div class="cabecera">
+<a class="marca" href="{r(ruta("inicio", l))}">{adornos.diamante("diamante marca-diamante")}<span>ASHA<small>Jewelry · Miami</small></span></a>
 <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu" hidden>{esc(tx(d, "menu", l))}</button>
 <nav id="menu" aria-label="{esc(tx(d, "menu", l))}"><ul>{nav}<li><a class="idioma" href="{r(alternos[otro])}" hreflang="{otro}" lang="{otro}">{esc(tx(d, "otro_idioma", l))}</a></li></ul></nav>
-</header>
+</div></header>
 <main id="contenido">
 {cuerpo}
 </main>
