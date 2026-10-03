@@ -1,6 +1,7 @@
 """Carga y valida datos/. Si algo no cuadra, lanza ErrorDatos con todos los
 problemas juntos, para arreglarlos de una vez."""
 import json
+import re
 from pathlib import Path
 
 from herramientas.config import IDIOMAS
@@ -41,11 +42,41 @@ def _unicos(elementos, tipo, problemas):
     return ids
 
 
+HORA = re.compile(r"^([01][0-9]|2[0-3]):[0-5][0-9]$")
+
+
+def _validar_horas(n, p):
+    """horas: null o una lista de tramos {dias, abre, cierra}; cada día de
+    `dias` en un solo tramo y ningún día fuera de `dias`."""
+    horas = n.get("horas")
+    if horas is None:
+        return
+    if not isinstance(horas, list) or not horas:
+        p.append("negocio.horas: debe ser null o una lista de tramos")
+        return
+    vistos = []
+    for i, h in enumerate(horas):
+        donde = f"negocio.horas[{i}]"
+        if not isinstance(h, dict) or not h.get("dias"):
+            p.append(f"{donde}: faltan los días")
+            continue
+        for dia in h["dias"]:
+            if dia not in (n.get("dias") or []):
+                p.append(f"{donde}: {dia} no está en negocio.dias")
+            if dia in vistos:
+                p.append(f"{donde}: {dia} aparece en más de un tramo")
+            vistos.append(dia)
+        abre, cierra = h.get("abre", ""), h.get("cierra", "")
+        if not HORA.match(abre) or not HORA.match(cierra) or abre >= cierra:
+            p.append(f"{donde}: abre/cierra deben ser HH:MM y abrir antes de cerrar")
+
+
 def validar(d):
     p = []
     for campo in NEGOCIO_OBLIGATORIO:
         if not d["negocio"].get(campo):
             p.append(f"negocio.{campo}: falta")
+    _validar_horas(d["negocio"], p)
     for clave, valor in d["textos"].items():
         _bilingue(valor, f"textos.{clave}", p)
     ids_cat = _unicos(d["categorias"], "categorias", p)

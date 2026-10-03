@@ -33,8 +33,8 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 ## Estado
 - **Vista previa en vivo**: https://ashamiami.com/ (GitHub Pages vía Actions; `noindex`). Es un dominio **provisional** de Ernesto (GoDaddy, DNS apuntando a GitHub Pages); el definitivo será ashajewelryusa.com. GitHub Pages admite un solo dominio: al lanzar, se cambia el dominio personalizado en Settings > Pages, `LANZADO = True` y `ashamiami.com` puede quedar redirigiendo.
 - 35 páginas (ES y EN), 13 elementos provisionales (8 piezas, 4 servicios y la ficha del negocio).
-- Pruebas: `python -m unittest discover -s tests -t .` (68 pruebas, todas en verde al cerrar).
-- Ramas: `main` (publicado) y `sitio-v1` (trabajo), iguales al cerrar.
+- Pruebas: `python -m unittest discover -s tests -t .` (74 pruebas, todas en verde).
+- Ramas: `main` (publicado) y `sitio-v1` (trabajo); `main` avanza solo por fast-forward con push, nunca con merge desde la web.
 
 ## Cómo retomar en la Máquina 1
 1. `git pull` en el clon del repo (o `git clone https://github.com/cisnerosmusic/ashajewelry-site.git` si no existe).
@@ -43,16 +43,16 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 4. Vista previa local: `python -m http.server 8430 --directory publico`. Si se usa el panel de vista previa de Claude, añadir una entrada `asha` al `.claude/launch.json` del espacio de trabajo apuntando a `ashajewelry-site/publico`.
 5. Leer PENDIENTES.md y seguir por lo que Ernesto decida.
 
-## EN CURSO al cerrar la Máquina 2 (2-oct-2026): conectar ashamiami.com
+## ashamiami.com conectado (2-oct-2026)
+- DNS en GoDaddy (zona de `ashamiami.com`): 4 A en `@` (185.199.108-111.153), 4 AAAA en `@` (2606:50c0:8000-8003::153) y CNAME `www` → `cisnerosmusic.github.io`. Se conservan NS, SOA, `_domainconnect` y el TXT `_dmarc`.
+- Dominio personalizado en Settings > Pages, certificado aprobado y HTTPS forzado. `www`, `http://` y `cisnerosmusic.github.io/ashajewelry-site/` redirigen (301) a `https://ashamiami.com/`.
+- Dominio verificado en la cuenta de GitHub de Ernesto (TXT `_github-pages-challenge-cisnerosmusic` en GoDaddy): no borrarlo.
+- Al lanzar ashajewelryusa.com, ashamiami.com deja de servir el sitio y pasa a ser una redirección 301 (README, "Lanzamiento", paso 5): hay que quitar sus registros de GitHub y moverlo a Cloudflare.
 
-La rama `sitio-v1` va un commit por delante de `main` (dda228b): la web ya usa `https://ashamiami.com/` como dirección base. **No pasar a `main` hasta que los DNS respondan**, o el sitio publicado apuntará a un dominio que todavía no funciona.
-
-1. **Ernesto, en GoDaddy** (`ashamiami.com` → DNS): borrar los A de aparcamiento (`15.197.148.33`, `3.33.130.190`) y cualquier reenvío; añadir 4 registros A en `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; CNAME `www` → `cisnerosmusic.github.io`.
-2. Comprobar: `nslookup ashamiami.com 8.8.8.8` debe devolver las IP 185.199.x.153.
-3. Poner el dominio en Pages: `PUT https://api.github.com/repos/cisnerosmusic/ashajewelry-site/pages` con `{"cname":"ashamiami.com"}` (token del almacén de credenciales de git; nunca mostrarlo), o en Settings > Pages > Custom domain.
-4. Pasar `sitio-v1` a `main` (fast-forward) y push: se publica con la nueva base.
-5. Cuando GitHub emita el certificado (minutos u horas), activar "Enforce HTTPS" (`{"https_enforced":true}` en el mismo endpoint).
-6. Verificar: `https://ashamiami.com/` y `https://www.ashamiami.com/` cargan; `cisnerosmusic.github.io/ashajewelry-site/` redirige; las páginas siguen con `noindex`.
+## Ficha de Google Business (existe)
+- Google Maps: https://www.google.com/maps?cid=7586306600511357337 (4,5 ★, 8 opiniones al 2-oct-2026). Nombre "Asha Jewelry", categoría "Jewelry manufacturer", sin sitio web.
+- La web usa su chincheta (25.6278829, -80.3887829) en `geo` y su enlace en `mapa` (botón "Cómo llegar" y `hasMap`).
+- Horario confirmado en la tienda el 2-oct-2026: martes a sábado de 10 a. m. a 7 p. m. (el oficial era hasta las 8, pero de 7 a 8 no entra nadie), domingo de 10 a. m. a 5 p. m., lunes cerrado. La ficha de Google todavía dice hasta las 8 de martes a sábado: Billy tiene que cambiarla.
 
 ## Siguiente paso probable
-Enseñar la vista previa a Billy y recoger las respuestas de PENDIENTES.md (horas, WhatsApp, precios, envíos, fotos reales, licencia de Jitter, origen de la foto). Después, el lanzamiento con el dominio (README, sección "Lanzamiento").
+Enseñar la vista previa a Billy y recoger las respuestas de PENDIENTES.md (WhatsApp, precios, envíos, fotos reales, licencia de Jitter, origen de la foto). Después, el lanzamiento con el dominio (README, sección "Lanzamiento").

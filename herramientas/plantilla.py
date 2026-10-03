@@ -36,7 +36,15 @@ def direccion_corta(d):
     return f"{a['calle']}, {a['ciudad']}, {a['estado']} {a['cp']}"
 
 
+def horario_html(d, l):
+    """El horario con un tramo por línea (en textos.json van separados por " · ")."""
+    return "<br>".join(esc(x) for x in tx(d, "horario", l).split(" · "))
+
+
 def url_mapa(d):
+    """La ficha de Google Maps de la tienda si está en negocio.json; si no, una búsqueda."""
+    if d["negocio"].get("mapa"):
+        return d["negocio"]["mapa"]
     consulta = f"{d['negocio']['dentro_de']}, {direccion_corta(d)}"
     return "https://www.google.com/maps/search/?api=1&query=" + urllib.parse.quote(consulta)
 
@@ -118,7 +126,7 @@ def pagina(d, l, aqui, alternos, titulo, descripcion, cuerpo, schema,
 <footer class="pie">
 <div class="pie-fila">
 <p><strong>{esc(n["nombre"])}</strong><br>{esc(tx(d, "dentro_de", l))}<br>{esc(direccion_corta(d))}</p>
-<p>{esc(tx(d, "horario", l))}<br><a href="tel:{esc(n["telefono"])}">{esc(n["telefono_visible"])}</a><br><a href="{esc(n["instagram"])}" rel="noopener">Instagram</a> · <a href="{esc(n["tiktok"])}" rel="noopener">TikTok</a> @ashajewelryshop</p>
+<p>{horario_html(d, l)}<br><a href="tel:{esc(n["telefono"])}">{esc(n["telefono_visible"])}</a><br><a href="{esc(n["instagram"])}" rel="noopener">Instagram</a> · <a href="{esc(n["tiktok"])}" rel="noopener">TikTok</a> @ashajewelryshop</p>
 </div>
 <p class="pie-legal">© 2026 {esc(n["nombre"])} · {esc(tx(d, "credito", l))} <a href="https://index01.net">Index01</a></p>
 </footer>

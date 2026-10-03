@@ -2,7 +2,7 @@
 dos lenguas más la 404."""
 from herramientas import adornos, config, schema
 from herramientas.datos import ErrorDatos, promo_vigente
-from herramientas.plantilla import direccion_corta, enlace_contacto, esc, pagina, tx, url_mapa
+from herramientas.plantilla import direccion_corta, enlace_contacto, esc, horario_html, pagina, tx, url_mapa
 from herramientas.rutas import SECCIONES, archivo, rel, ruta, ruta_pieza, ruta_servicio
 
 TAM_TARJETA = "(min-width: 48rem) 25vw, 50vw"
@@ -46,7 +46,7 @@ def bloque_visita(d, l):
     n = d["negocio"]
     return (f'<dl class="datos">'
             f'<dt>{esc(tx(d, "direccion_t", l))}</dt><dd>{esc(tx(d, "dentro_de", l))}<br>{esc(direccion_corta(d))}</dd>'
-            f'<dt>{esc(tx(d, "horario_t", l))}</dt><dd>{esc(tx(d, "horario", l))}</dd>'
+            f'<dt>{esc(tx(d, "horario_t", l))}</dt><dd>{horario_html(d, l)}</dd>'
             f'<dt>{esc(tx(d, "telefono_t", l))}</dt><dd><a href="tel:{esc(n["telefono"])}">{esc(n["telefono_visible"])}</a></dd>'
             f'</dl><p><a class="boton boton-borde" href="{esc(url_mapa(d))}" rel="noopener">{esc(tx(d, "abrir_mapa", l))}</a></p>')
 
@@ -234,9 +234,9 @@ def llms(d):
     base = config.url_publica()
     return f"""# {n["nombre"]}
 
-> Joyería en un kiosko dentro de {n["dentro_de"]}, {direccion_corta(d)}. Oro 10K, 14K y 18K, reparación de joyas, ajuste de talla de anillos, grabado y joyas a medida. Financiamiento ({", ".join(n["pagos"])}) y layaway. Abre de martes a domingo; cerrado los lunes. Teléfono {n["telefono_visible"]}. Abrió en abril de 2026.
+> Joyería en un kiosko dentro de {n["dentro_de"]}, {direccion_corta(d)}. Oro 10K, 14K y 18K, reparación de joyas, ajuste de talla de anillos, grabado y joyas a medida. Financiamiento ({", ".join(n["pagos"])}) y layaway. Horario: {tx(d, "horario", "es")}. Teléfono {n["telefono_visible"]}. Abrió en abril de 2026.
 
-> Jewelry kiosk inside {n["dentro_de"]}, {direccion_corta(d)}. 10K, 14K and 18K gold, jewelry repair, ring sizing, engraving and custom jewelry. Financing ({", ".join(n["pagos"])}) and layaway. Open Tuesday to Sunday; closed on Mondays.
+> Jewelry kiosk inside {n["dentro_de"]}, {direccion_corta(d)}. 10K, 14K and 18K gold, jewelry repair, ring sizing, engraving and custom jewelry. Financing ({", ".join(n["pagos"])}) and layaway. Hours: {tx(d, "horario", "en")}.
 
 Desambiguación / Disambiguation: no es ASHA by Ashley McCormick (Palm Beach) ni Asha Jewelry de Adelaida, Australia (ashajewelry.com). Not affiliated with either.
 

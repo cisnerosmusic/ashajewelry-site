@@ -37,6 +37,24 @@ class TestDatos(unittest.TestCase):
         with self.assertRaisesRegex(ErrorDatos, "precio"):
             datos.validar(d)
 
+    def test_horas_lunes_cerrado(self):
+        d = reales()
+        d["negocio"]["horas"][0]["dias"].append("Mo")
+        with self.assertRaisesRegex(ErrorDatos, "Mo no está en negocio.dias"):
+            datos.validar(d)
+
+    def test_horas_dia_repetido(self):
+        d = reales()
+        d["negocio"]["horas"][1]["dias"].append("Tu")
+        with self.assertRaisesRegex(ErrorDatos, "más de un tramo"):
+            datos.validar(d)
+
+    def test_horas_formato(self):
+        d = reales()
+        d["negocio"]["horas"][0]["cierra"] = "7pm"
+        with self.assertRaisesRegex(ErrorDatos, "HH:MM"):
+            datos.validar(d)
+
     def test_slug_repetido(self):
         d = reales()
         d["piezas"][1]["slug"] = copy.deepcopy(d["piezas"][0]["slug"])

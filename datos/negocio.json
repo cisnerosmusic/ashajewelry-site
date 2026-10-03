@@ -11,12 +11,16 @@
     "pais": "US"
   },
   "dentro_de": "Mercado Fresco y Más",
-  "geo": null,
+  "geo": {"lat": 25.6278829, "lon": -80.3887829},
+  "mapa": "https://www.google.com/maps?cid=7586306600511357337",
   "telefono": "+17869781981",
   "telefono_visible": "786-978-1981",
   "whatsapp": null,
   "dias": ["Tu", "We", "Th", "Fr", "Sa", "Su"],
-  "horas": null,
+  "horas": [
+    {"dias": ["Tu", "We", "Th", "Fr", "Sa"], "abre": "10:00", "cierra": "19:00"},
+    {"dias": ["Su"], "abre": "10:00", "cierra": "17:00"}
+  ],
   "instagram": "https://www.instagram.com/ashajewelryshop/",
   "tiktok": "https://www.tiktok.com/@ashajewelryshop",
   "pagos": ["Affirm", "Afterpay", "Klarna", "Zip", "Shop Pay"],

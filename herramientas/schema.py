@@ -1,5 +1,5 @@
 """JSON-LD de schema.org: la tienda (dentro de Fresco y Más), productos y
-servicios. Lo que no está verificado (horas, geo) no se emite."""
+servicios. Lo que no está verificado (horas, geo, mapa) no se emite."""
 from herramientas import config
 from herramientas.rutas import ruta, ruta_pieza, ruta_servicio
 
@@ -40,13 +40,15 @@ def tienda(d, l):
     if n.get("geo"):
         t["geo"] = {"@type": "GeoCoordinates", "latitude": n["geo"]["lat"],
                     "longitude": n["geo"]["lon"]}
+    if n.get("mapa"):
+        t["hasMap"] = n["mapa"]
     if n.get("horas"):
         t["openingHoursSpecification"] = [{
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [f"https://schema.org/{DIAS[x]}" for x in n["dias"]],
-            "opens": n["horas"]["abre"],
-            "closes": n["horas"]["cierra"],
-        }]
+            "dayOfWeek": [f"https://schema.org/{DIAS[x]}" for x in h["dias"]],
+            "opens": h["abre"],
+            "closes": h["cierra"],
+        } for h in n["horas"]]
     return t
 
 

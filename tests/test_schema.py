@@ -21,18 +21,35 @@ class TestSchema(unittest.TestCase):
         self.assertIn("https://www.tiktok.com/@ashajewelryshop", t["sameAs"])
 
     def test_sin_horas_no_hay_horario(self):
-        self.assertNotIn("openingHoursSpecification", schema.tienda(D, "es"))
-
-    def test_con_horas_hay_horario(self):
         d = copy.deepcopy(D)
-        d["negocio"]["horas"] = {"abre": "10:00", "cierra": "20:00"}
-        h = schema.tienda(d, "en")["openingHoursSpecification"][0]
-        self.assertIn("https://schema.org/Tuesday", h["dayOfWeek"])
-        self.assertNotIn("https://schema.org/Monday", h["dayOfWeek"])
-        self.assertEqual(h["opens"], "10:00")
+        d["negocio"]["horas"] = None
+        self.assertNotIn("openingHoursSpecification", schema.tienda(d, "es"))
 
-    def test_sin_geo_no_hay_geo(self):
-        self.assertNotIn("geo", schema.tienda(D, "es"))
+    def test_horario_por_tramos(self):
+        d = copy.deepcopy(D)
+        d["negocio"]["horas"] = [
+            {"dias": ["Tu", "We", "Th", "Fr", "Sa"], "abre": "10:00", "cierra": "19:00"},
+            {"dias": ["Su"], "abre": "10:00", "cierra": "17:00"},
+        ]
+        semana, domingo = schema.tienda(d, "en")["openingHoursSpecification"]
+        self.assertIn("https://schema.org/Tuesday", semana["dayOfWeek"])
+        self.assertNotIn("https://schema.org/Monday", semana["dayOfWeek"])
+        self.assertEqual(semana["closes"], "19:00")
+        self.assertEqual(domingo["dayOfWeek"], ["https://schema.org/Sunday"])
+        self.assertEqual(domingo["closes"], "17:00")
+
+    def test_sin_geo_ni_mapa_no_se_emiten(self):
+        d = copy.deepcopy(D)
+        d["negocio"]["geo"] = None
+        d["negocio"]["mapa"] = None
+        t = schema.tienda(d, "es")
+        self.assertNotIn("geo", t)
+        self.assertNotIn("hasMap", t)
+
+    def test_geo_y_mapa(self):
+        t = schema.tienda(D, "es")
+        self.assertEqual(t["geo"]["@type"], "GeoCoordinates")
+        self.assertTrue(t["hasMap"].startswith("https://www.google.com/maps"))
 
     def test_producto_sin_precio_sin_offer(self):
         o = schema.producto(D, "es", D["piezas"][0])

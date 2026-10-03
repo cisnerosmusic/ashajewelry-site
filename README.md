@@ -19,7 +19,8 @@ Todo el contenido vive en `datos/*.json` (español e inglés en cada campo). `he
 | Añadir una pieza | `datos/piezas.json` y su foto en `img/originales/<nombre>.jpg` (en `fotos` va el nombre sin extensión) |
 | Poner precio | `"precio": 250` en la pieza (`null` muestra "Consultar precio") |
 | Anunciar una promo | `datos/promos.json` con `desde` y `hasta` (AAAA-MM-DD). La fecha se mira al generar: regenerar y hacer push el día que empieza y el día que termina |
-| Cambiar horario, teléfono, WhatsApp | `datos/negocio.json` |
+| Cambiar horario | `"horas"` en `datos/negocio.json` (tramos por días, para el schema) y `"horario"` en `datos/textos.json` (el texto visible), las dos a la vez |
+| Cambiar teléfono, WhatsApp | `datos/negocio.json` |
 | Cambiar un texto | `datos/textos.json` |
 | Cambiar colores o diseño | `estaticos/css/sitio.css` y subir `VERSION` en `herramientas/config.py` |
 | Rehacer iconos o imagen para redes | `python herramientas/marca.py` |
@@ -37,4 +38,4 @@ y push. Para verlo en local: `python -m http.server 8430 --directory publico`.
 2. En Cloudflare, registros hacia GitHub Pages: `A` en `@` a 185.199.108.153, 185.199.109.153, 185.199.110.153 y 185.199.111.153, y `CNAME` en `www` a `cisnerosmusic.github.io`, todos sin proxy.
 3. `LANZADO = True` en `herramientas/config.py`, regenerar y push (se escriben `CNAME` y `sitemap.xml` y desaparece el `noindex`).
 4. En Settings > Pages del repo, dominio personalizado `ashajewelryusa.com` y "Enforce HTTPS".
-5. ashajewelrymiami.com y ashamiami.com: zonas en Cloudflare y una regla de redirección 301 de cada una (con y sin `www`) a `https://ashajewelryusa.com/`, conservando la ruta.
+5. ashajewelrymiami.com y ashamiami.com: quitar del DNS de ashamiami.com los registros de GitHub, zonas en Cloudflare y una regla de redirección 301 de cada una (con y sin `www`) a `https://ashajewelryusa.com/`, conservando la ruta.
