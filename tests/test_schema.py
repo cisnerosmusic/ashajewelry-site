@@ -16,7 +16,8 @@ class TestSchema(unittest.TestCase):
         self.assertEqual(t["containedInPlace"]["@type"], "GroceryStore")
         self.assertEqual(t["containedInPlace"]["name"], "Mercado Fresco y Más")
         self.assertEqual(t["address"]["postalCode"], "33177")
-        self.assertIn("Klarna", t["paymentAccepted"])
+        self.assertIn("Layaway", t["paymentAccepted"])
+        self.assertNotIn("Klarna", t["paymentAccepted"])
         self.assertIn("https://www.instagram.com/ashajewelryshop/", t["sameAs"])
         self.assertIn("https://www.tiktok.com/@ashajewelryshop", t["sameAs"])
 

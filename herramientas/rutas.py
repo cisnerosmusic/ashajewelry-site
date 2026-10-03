@@ -11,7 +11,7 @@ SECCIONES = {
     "inicio": {"es": "", "en": "en/"},
     "catalogo": {"es": "catalogo/", "en": "en/catalog/"},
     "servicios": {"es": "servicios/", "en": "en/services/"},
-    "financiamiento": {"es": "financiamiento/", "en": "en/financing/"},
+    "pagos": {"es": "formas-de-pago/", "en": "en/payment-options/"},
     "como_llegar": {"es": "como-llegar/", "en": "en/visit/"},
 }
 

@@ -1,7 +1,7 @@
 {
   "lema": {
-    "es": "Oro auténtico 10K, 14K y 18K, con financiamiento, dentro de Fresco y Más",
-    "en": "Authentic 10K, 14K and 18K gold, with financing, inside Fresco y Más"
+    "es": "Oro auténtico 10K, 14K y 18K dentro de Fresco y Más",
+    "en": "Authentic 10K, 14K and 18K gold inside Fresco y Más"
   },
   "nav_catalogo": {
     "es": "Catálogo",
@@ -11,9 +11,9 @@
     "es": "Servicios",
     "en": "Services"
   },
-  "nav_financiamiento": {
-    "es": "Financiamiento",
-    "en": "Financing"
+  "nav_pagos": {
+    "es": "Formas de pago",
+    "en": "Payment options"
   },
   "nav_como_llegar": {
     "es": "Cómo llegar",
@@ -99,13 +99,13 @@
     "es": "Reparamos, ajustamos y creamos",
     "en": "We repair, resize and create"
   },
-  "inicio_financiamiento_t": {
-    "es": "Llévatela hoy, págala a tu ritmo",
-    "en": "Take it home today, pay at your pace"
+  "inicio_pagos_t": {
+    "es": "Apártala hoy, págala a tu ritmo",
+    "en": "Reserve it today, pay at your pace"
   },
-  "inicio_financiamiento_p": {
-    "es": "Aceptamos Affirm, Afterpay, Klarna, Zip y Shop Pay, y tenemos layaway.",
-    "en": "We accept Affirm, Afterpay, Klarna, Zip and Shop Pay, and we offer layaway."
+  "inicio_pagos_p": {
+    "es": "Paga en efectivo o con tarjeta, o aparta tu joya con layaway y págala poco a poco.",
+    "en": "Pay with cash or card, or reserve your piece with layaway and pay it off little by little."
   },
   "inicio_visita_t": {
     "es": "Te esperamos en el kiosko 2",
@@ -123,6 +123,14 @@
     "es": "Layaway",
     "en": "Layaway"
   },
+  "pago_efectivo": {
+    "es": "Efectivo",
+    "en": "Cash"
+  },
+  "pago_tarjeta": {
+    "es": "Tarjeta",
+    "en": "Card"
+  },
   "catalogo_intro": {
     "es": "Una muestra de lo que tenemos en la vitrina. Las piezas cambian a menudo: si buscas algo concreto, escríbenos.",
     "en": "A sample of what's in our display case. Pieces change often, so if you're looking for something specific, get in touch."
@@ -131,21 +139,29 @@
     "es": "Arreglamos la joya que ya tienes y hacemos la que imaginas.",
     "en": "We fix the jewelry you already own and make the piece you have in mind."
   },
-  "financiamiento_intro": {
-    "es": "Elige cómo pagar. Las condiciones dependen de cada plataforma y de su aprobación; te las explicamos en el kiosko.",
-    "en": "Choose how to pay. Terms depend on each platform and on approval; we'll walk you through them at the kiosk."
+  "pagos_intro": {
+    "es": "En el kiosko aceptamos efectivo y tarjeta. Si prefieres pagar poco a poco, aparta tu joya con layaway.",
+    "en": "At the kiosk we take cash and cards. If you'd rather pay little by little, reserve your piece with layaway."
   },
-  "financiamiento_plataformas_t": {
-    "es": "Plataformas que aceptamos",
-    "en": "Platforms we accept"
+  "pagos_aceptamos_t": {
+    "es": "Aceptamos",
+    "en": "We accept"
   },
-  "financiamiento_layaway_t": {
+  "pagos_layaway_t": {
     "es": "Layaway (apartado)",
     "en": "Layaway"
   },
-  "financiamiento_layaway_p": {
+  "pagos_layaway_p": {
     "es": "Aparta tu pieza y págala poco a poco. Pregúntanos las condiciones.",
     "en": "Reserve your piece and pay it off little by little. Ask us for the details."
+  },
+  "pagos_plazos_t": {
+    "es": "¿Pago a plazos con una app?",
+    "en": "Buy now, pay later apps"
+  },
+  "pagos_plazos_p": {
+    "es": "Por ahora ASHA no ofrece financiamiento propio. Si tu app de pago a plazos te da una tarjeta virtual, puedes pagar con ella en el kiosko como con cualquier tarjeta: la aprobación y las cuotas las gestiona la app, no la tienda.",
+    "en": "ASHA doesn't offer its own financing yet. If your buy now, pay later app gives you a virtual card, you can pay with it at the kiosk like any other card: approval and installments are handled by the app, not by the store."
   },
   "como_llegar_intro": {
     "es": "Estamos dentro de Mercado Fresco y Más, en el kiosko 2.",
@@ -180,8 +196,8 @@
     "en": "ASHA Jewelry ♦ Your jewelry store in Miami"
   },
   "meta_inicio_d": {
-    "es": "Oro auténtico 10K, 14K y 18K, reparación de joyas, ajuste de anillos y grabado. Financiamiento y layaway. Dentro de Fresco y Más, kiosko 2.",
-    "en": "Authentic 10K, 14K and 18K gold, jewelry repair, ring sizing and engraving. Financing and layaway. Inside Fresco y Más, kiosk 2."
+    "es": "Oro auténtico 10K, 14K y 18K, reparación de joyas, ajuste de anillos y grabado. Layaway para apartar tu joya. Dentro de Fresco y Más, kiosko 2.",
+    "en": "Authentic 10K, 14K and 18K gold, jewelry repair, ring sizing and engraving. Layaway to reserve your piece. Inside Fresco y Más, kiosk 2."
   },
   "meta_catalogo_t": {
     "es": "Catálogo de joyas de oro · ASHA Jewelry Miami",
@@ -199,13 +215,13 @@
     "es": "Reparación de joyas, ajuste de talla de anillos, grabado y joyas a medida en Miami (33177).",
     "en": "Jewelry repair, ring sizing, engraving and custom jewelry in Miami (33177)."
   },
-  "meta_financiamiento_t": {
-    "es": "Financiamiento y layaway · ASHA Jewelry Miami",
-    "en": "Financing and layaway · ASHA Jewelry Miami"
+  "meta_pagos_t": {
+    "es": "Formas de pago y layaway · ASHA Jewelry Miami",
+    "en": "Payment options and layaway · ASHA Jewelry Miami"
   },
-  "meta_financiamiento_d": {
-    "es": "Paga con Affirm, Afterpay, Klarna, Zip o Shop Pay, o aparta tu joya con layaway.",
-    "en": "Pay with Affirm, Afterpay, Klarna, Zip or Shop Pay, or reserve your piece with layaway."
+  "meta_pagos_d": {
+    "es": "Paga en efectivo o con tarjeta, o aparta tu joya con layaway en el kiosko 2 de Fresco y Más.",
+    "en": "Pay with cash or card, or reserve your piece with layaway at kiosk 2 inside Fresco y Más."
   },
   "meta_como_llegar_t": {
     "es": "Cómo llegar · ASHA Jewelry Miami",

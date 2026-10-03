@@ -24,7 +24,7 @@ class TestSitio(unittest.TestCase):
         por_idioma = 1 + 1 + len(d["piezas"]) + 1 + len(d["servicios"]) + 1 + 1
         self.assertEqual(len(pags), 2 * por_idioma + 1)
         for f in ("index.html", "en/index.html", "catalogo/index.html", "en/catalog/gold-ring/index.html",
-                  "servicios/grabado/index.html", "en/visit/index.html", "financiamiento/index.html",
+                  "servicios/grabado/index.html", "en/visit/index.html", "formas-de-pago/index.html",
                   "404.html", "robots.txt", "llms.txt", "css/sitio.css", "favicon.svg", "img/og.png"):
             self.assertTrue((self.publico / f).is_file(), f)
         self.assertEqual(comprobar.todo(RAIZ, self.publico), [])

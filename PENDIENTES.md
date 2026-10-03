@@ -5,10 +5,11 @@
 - [ ] Licencia de Jitter (la letra de "ASHA"): la ficha de Adys usa JitterDEMO. Preguntar a Adys si se compró la licencia comercial. La web no la usa como fuente (el logo va en trazos; los títulos, en Playfair Display); el texto va en Raleway, la de "JEWELRY".
 - [ ] ¿786-978-1981 es su WhatsApp? Si lo es: `"whatsapp": "+17869781981"`. Hasta entonces los botones llaman por teléfono.
 - [ ] Envíos: su TikTok dice "Shipping available" y "USA". ¿Envía a todo EE. UU.? ¿Con qué condiciones? Si se confirma, añadirlo al sitio (textos y `llms.txt`).
-- [ ] Confirmar plataformas de financiamiento: un texto de IG de agosto dice solo Affirm y Afterpay; los de septiembre, Affirm, Afterpay, Shop Pay, Klarna y Zip (la web usa la lista reciente).
+- [ ] Confirmar que aceptan efectivo y tarjeta (la web lo da por hecho) y si aceptan débito.
+- [ ] Condiciones del layaway: depósito inicial, plazo máximo y qué pasa si no se completa. Van en `pagos_layaway_p` de `textos.json`.
+- [ ] Alta como comercio en Affirm, Afterpay, Klarna o Zip (o un terminal como Square o Clover que lo traiga integrado). Cuando exista, volver a anunciar el financiamiento en "Formas de pago" y en `negocio.json`. Sus redes siguen anunciándolo: sugerir a Billy que lo corrija allí.
 - [ ] Quilataje de cada pieza (10K, 14K o 18K): hoy las fichas dicen solo "Oro". Requiere añadir el campo `quilataje` a `piezas.json` y mostrarlo.
 - [ ] ¿Precios visibles, rangos o "Consultar precio"? Sin precio, Google marcará las fichas `Product` como incompletas tras el lanzamiento.
-- [ ] ¿Usa Shopify POS? (acepta Shop Pay). Si lo usa, se podría importar el catálogo.
 - [ ] Su historia: ¿tiene oficio previo? (El origen del nombre ya está resuelto como contexto interno; ver CLAUDE.md.)
 - [ ] Confirmar qué incluye cada servicio (`servicios.json`, hoy provisional).
 - [ ] Fotos de piezas reales (sustituyen a las 8 piezas provisionales).

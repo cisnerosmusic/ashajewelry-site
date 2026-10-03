@@ -10,7 +10,7 @@ class TestRutas(unittest.TestCase):
 
     def test_secciones_en_ingles(self):
         self.assertEqual(rutas.ruta("como_llegar", "en"), "en/visit/")
-        self.assertEqual(rutas.ruta("financiamiento", "es"), "financiamiento/")
+        self.assertEqual(rutas.ruta("pagos", "es"), "formas-de-pago/")
 
     def test_ruta_pieza_y_servicio(self):
         pieza = {"slug": {"es": "anillo-de-oro", "en": "gold-ring"}}

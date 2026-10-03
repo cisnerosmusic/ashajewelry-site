@@ -52,7 +52,7 @@ def bloque_visita(d, l):
 
 
 def lista_pagos(d, l):
-    return "".join(f"<li>{esc(x)}</li>" for x in d["negocio"]["pagos"]) + f"<li>{esc(tx(d, 'layaway', l))}</li>"
+    return "".join(f"<li>{esc(tx(d, x, l))}</li>" for x in ("pago_efectivo", "pago_tarjeta", "layaway"))
 
 
 def inicio(d, l, man, hoy):
@@ -76,9 +76,9 @@ def inicio(d, l, man, hoy):
 {bloque_promo}
 <section class="seccion envoltura"><h2>{esc(tx(d, "inicio_destacadas", l))}</h2><ul class="rejilla">{destacadas}</ul>
 <p class="mas"><a class="boton boton-borde" href="{esc(rel(aqui, ruta("catalogo", l)))}">{esc(tx(d, "ver_catalogo", l))}</a></p></section>
-<section class="seccion seccion-oscura"><div class="envoltura"><h2>{esc(tx(d, "inicio_financiamiento_t", l))}</h2>
-<p>{esc(tx(d, "inicio_financiamiento_p", l))}</p><ul class="pagos">{lista_pagos(d, l)}</ul>
-<p><a href="{esc(rel(aqui, ruta("financiamiento", l)))}">{esc(tx(d, "ver_mas", l))}</a></p></div></section>
+<section class="seccion seccion-oscura"><div class="envoltura"><h2>{esc(tx(d, "inicio_pagos_t", l))}</h2>
+<p>{esc(tx(d, "inicio_pagos_p", l))}</p><ul class="pagos">{lista_pagos(d, l)}</ul>
+<p><a href="{esc(rel(aqui, ruta("pagos", l)))}">{esc(tx(d, "ver_mas", l))}</a></p></div></section>
 <section class="seccion envoltura"><h2>{esc(tx(d, "inicio_servicios", l))}</h2><ul class="servicios">{servicios_}</ul></section>
 <section class="seccion seccion-oscura"><div class="envoltura"><h2>{esc(tx(d, "inicio_visita_t", l))}</h2>
 <p>{esc(tx(d, "inicio_visita_p", l))}</p>{bloque_visita(d, l)}</div></section>"""
@@ -152,16 +152,17 @@ def servicio(d, l, s, man):
                   [schema.tienda(d, l), schema.servicio(d, l, s)], actual="servicios")
 
 
-def financiamiento(d, l):
-    aqui = ruta("financiamiento", l)
+def pagos(d, l):
+    aqui = ruta("pagos", l)
     href_c, etiqueta_c = enlace_contacto(d, l)
-    cuerpo = f"""<div class="seccion envoltura"><h1>{esc(tx(d, "nav_financiamiento", l))}</h1>
-<p class="entradilla">{esc(tx(d, "financiamiento_intro", l))}</p>
-<h2>{esc(tx(d, "financiamiento_plataformas_t", l))}</h2><ul class="pagos">{"".join(f"<li>{esc(x)}</li>" for x in d["negocio"]["pagos"])}</ul>
-<h2>{esc(tx(d, "financiamiento_layaway_t", l))}</h2><p>{esc(tx(d, "financiamiento_layaway_p", l))}</p>
+    cuerpo = f"""<div class="seccion envoltura"><h1>{esc(tx(d, "nav_pagos", l))}</h1>
+<p class="entradilla">{esc(tx(d, "pagos_intro", l))}</p>
+<h2>{esc(tx(d, "pagos_aceptamos_t", l))}</h2><ul class="pagos">{lista_pagos(d, l)}</ul>
+<h2>{esc(tx(d, "pagos_layaway_t", l))}</h2><p>{esc(tx(d, "pagos_layaway_p", l))}</p>
+<h2>{esc(tx(d, "pagos_plazos_t", l))}</h2><p>{esc(tx(d, "pagos_plazos_p", l))}</p>
 <p><a class="boton boton-principal" href="{esc(href_c)}">{esc(etiqueta_c)}</a></p></div>"""
-    return pagina(d, l, aqui, _alternos("financiamiento"), tx(d, "meta_financiamiento_t", l),
-                  tx(d, "meta_financiamiento_d", l), cuerpo, [schema.tienda(d, l)], actual="financiamiento")
+    return pagina(d, l, aqui, _alternos("pagos"), tx(d, "meta_pagos_t", l),
+                  tx(d, "meta_pagos_d", l), cuerpo, [schema.tienda(d, l)], actual="pagos")
 
 
 def como_llegar(d, l, man):
@@ -203,7 +204,7 @@ def todas(d, man, hoy):
         salida += [(archivo(ruta_pieza(p, l)), ficha(d, l, p, man)) for p in d["piezas"]]
         salida.append((archivo(ruta("servicios", l)), servicios(d, l)))
         salida += [(archivo(ruta_servicio(s, l)), servicio(d, l, s, man)) for s in d["servicios"]]
-        salida.append((archivo(ruta("financiamiento", l)), financiamiento(d, l)))
+        salida.append((archivo(ruta("pagos", l)), pagos(d, l)))
         salida.append((archivo(ruta("como_llegar", l)), como_llegar(d, l, man)))
     salida.append(("404.html", error404(d)))
     return salida
@@ -234,9 +235,9 @@ def llms(d):
     base = config.url_publica()
     return f"""# {n["nombre"]}
 
-> Joyería en un kiosko dentro de {n["dentro_de"]}, {direccion_corta(d)}. Oro 10K, 14K y 18K, reparación de joyas, ajuste de talla de anillos, grabado y joyas a medida. Financiamiento ({", ".join(n["pagos"])}) y layaway. Horario: {tx(d, "horario", "es")}. Teléfono {n["telefono_visible"]}. Abrió en abril de 2026.
+> Joyería en un kiosko dentro de {n["dentro_de"]}, {direccion_corta(d)}. Oro 10K, 14K y 18K, reparación de joyas, ajuste de talla de anillos, grabado y joyas a medida. Efectivo, tarjeta y layaway; sin financiamiento propio. Horario: {tx(d, "horario", "es")}. Teléfono {n["telefono_visible"]}. Abrió en abril de 2026.
 
-> Jewelry kiosk inside {n["dentro_de"]}, {direccion_corta(d)}. 10K, 14K and 18K gold, jewelry repair, ring sizing, engraving and custom jewelry. Financing ({", ".join(n["pagos"])}) and layaway. Hours: {tx(d, "horario", "en")}.
+> Jewelry kiosk inside {n["dentro_de"]}, {direccion_corta(d)}. 10K, 14K and 18K gold, jewelry repair, ring sizing, engraving and custom jewelry. Cash, card and layaway; no in-house financing. Hours: {tx(d, "horario", "en")}.
 
 Desambiguación / Disambiguation: no es ASHA by Ashley McCormick (Palm Beach) ni Asha Jewelry de Adelaida, Australia (ashajewelry.com). Not affiliated with either.
 

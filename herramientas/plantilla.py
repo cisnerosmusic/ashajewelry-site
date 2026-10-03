@@ -6,7 +6,7 @@ import urllib.parse
 from herramientas import adornos, config
 from herramientas.rutas import rel, ruta
 
-MENU = ("catalogo", "servicios", "financiamiento", "como_llegar")
+MENU = ("catalogo", "servicios", "pagos", "como_llegar")
 
 
 def esc(s):
