@@ -1,6 +1,8 @@
 # Pendientes
 
 ## Del cliente
+Las preguntas de la tienda se le hacen a la esposa de Billy, que atiende el kiosko; a Billy, lo de sus cuentas (Google Business, dominios, redes).
+
 - [ ] Logo original en vector (SVG o el diseño de Canva). Mientras tanto, el diamante, las estrellas y las florituras están redibujados en SVG (`herramientas/adornos.py`) a partir de la versión dorada sobre oscuro, y "ASHA" se compone con Playfair Display. Si llega el original, comparar y ajustar.
 - [ ] Licencia de Jitter (la letra de "ASHA"): la ficha de Adys usa JitterDEMO. Preguntar a Adys si se compró la licencia comercial. La web no la usa como fuente (el logo va en trazos; los títulos, en Playfair Display); el texto va en Raleway, la de "JEWELRY".
 - [ ] ¿786-978-1981 es su WhatsApp? Si lo es: `"whatsapp": "+17869781981"`. Hasta entonces los botones llaman por teléfono.

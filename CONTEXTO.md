@@ -4,7 +4,8 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 
 ## El cliente
 - **ASHA Jewelry Miami**: joyería en el kiosko 2 dentro de Mercado Fresco y Más, 12107 SW 152nd St, Miami, FL 33177 (zona de Ernesto). Abrió el 14 de abril de 2026. Martes a domingo; cerrado los lunes. Teléfono 786-978-1981.
-- Dueño: **Billy**, amigo de Ernesto. Cliente de Index01.
+- Dueño: **Billy**, amigo de Ernesto. Cliente de Index01. Lleva el negocio a distancia.
+- **Quien atiende el kiosko y está en funciones es su esposa**: las preguntas del día a día (horario, pagos, layaway, fotos, piezas) se le hacen a ella en la tienda. A Billy, lo que sea de cuentas suyas (Google Business, dominios, redes).
 - Público en persona: 66 % hispanohablante, por eso el español va en la raíz y el inglés en `/en/`.
 - Oro 10K, 14K y 18K, plata, reparación, ajuste de anillos, grabado y piezas a medida (dijes con nombre, iniciales). Efectivo, tarjeta y layaway. **Sin financiamiento propio** (confirmado en la tienda el 2-oct-2026): sus redes anunciaban Affirm, Afterpay, Klarna, Zip y Shop Pay, pero no tienen acuerdo con ninguna; el cliente usa la tarjeta virtual de su app de pago a plazos y para la tienda es un pago con tarjeta. La web no nombra esas marcas y lo aclara en "Formas de pago". Cuando tengan web piensan pedir el alta como comercio; si llega, se anuncia con los logos oficiales.
 - Redes: Instagram y TikTok @ashajewelryshop. El TikTok dice "Shipping available · USA" (envíos sin confirmar).
@@ -55,4 +56,4 @@ Estado al 2 de octubre de 2026, al cerrar la sesión en la Máquina 2 (UW). Este
 - Horario confirmado en la tienda el 2-oct-2026: martes a sábado de 10 a. m. a 7 p. m. (el oficial era hasta las 8, pero de 7 a 8 no entra nadie), domingo de 10 a. m. a 5 p. m., lunes cerrado. La ficha de Google todavía dice hasta las 8 de martes a sábado: Billy tiene que cambiarla.
 
 ## Siguiente paso probable
-Enseñar la vista previa a Billy y recoger las respuestas de PENDIENTES.md (WhatsApp, precios, envíos, fotos reales, licencia de Jitter, origen de la foto). Después, el lanzamiento con el dominio (README, sección "Lanzamiento").
+Enseñar la vista previa en la tienda y recoger las respuestas de PENDIENTES.md (WhatsApp, precios, envíos, fotos reales, licencia de Jitter, origen de la foto). Después, el lanzamiento con el dominio (README, sección "Lanzamiento").
